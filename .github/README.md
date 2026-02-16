@@ -4,9 +4,6 @@ A curated collection of wallpapers organized for system-wide theme switching and
 
 ## 📂 Structure
 
-* **Dynamic-Wallpapers**: Optimized assets for automated desktop themes.
-    * **Dark**: High-quality imagery for dark mode environments.
-    * **Light**: Selected visuals for light mode environments.
 * **Anime**: Dedicated collection of anime-themed backgrounds and art.
 * **Unsorted**: New additions and miscellaneous wallpapers awaiting categorization.
 
