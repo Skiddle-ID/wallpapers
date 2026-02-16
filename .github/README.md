@@ -5,6 +5,7 @@ A curated collection of wallpapers organized for system-wide theme switching and
 ## 📂 Structure
 
 * **Anime**: Dedicated collection of anime-themed backgrounds and art.
+* **Calm**: Dedicated collection of calm-themed backgrounds and art.
 * **Unsorted**: New additions and miscellaneous wallpapers awaiting categorization.
 
 ## ⚖️ Disclaimer & Sources
