@@ -19,6 +19,7 @@ I do not own the copyright to the wallpapers in this repository. These images we
 * [Pixiv](https://www.pixiv.net/en/) | [Unsplash](https://unsplash.com/) | [ArtStation](https://artstation.com/)
 * [DeviantArt](https://deviantart.com/) | [WallpaperCave](https://wallpapercave.com/) | [Freepik](https://www.freepik.com/)
 * [Pinterest](https://in.pinterest.com/) | [Pixabay](https://pixabay.com/) | [Wallhere](https://wallhere.com/)
+* [UHD Paper](https://www.uhdpaper.com/)
 
 ### **Reddit Communities**
 * [r/unixporn](https://www.reddit.com/r/unixporn/) | [r/Animewallpaper](https://www.reddit.com/r/Animewallpaper/) | [r/wallpaper](https://www.reddit.com/r/wallpaper/)
