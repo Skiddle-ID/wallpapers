@@ -10,6 +10,7 @@ A curated collection of wallpapers organized for system-wide theme switching and
 [![Anime](https://placehold.co/130x30/FF6B9D/FFFFFF?text=Anime&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Anime)
 [![Calm](https://placehold.co/130x30/89E5AE/1E3A28?text=Calm&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Calm)
 [![Games](https://placehold.co/130x30/7B2CBF/E0AAFF?text=Games&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Games)
+[![Nature](https://placehold.co/130x30/2D5016/A8E890?text=Nature&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Nature)
 [![Pokémon](https://placehold.co/130x30/FFCB05/3D7DCA?text=Pokémon&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Pokémon)
 [![Unsorted](https://placehold.co/130x30/6C757D/DEE2E6?text=Unsorted&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Unsorted)
 
