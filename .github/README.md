@@ -17,6 +17,16 @@ A curated collection of wallpapers organized for system-wide theme switching and
   </td></tr></table>
 </div>
 
+## ✨ Special Categories
+
+<div align="center">
+  <table><tr><td>
+
+[![Skiddle Generated](https://placehold.co/130x30/FF6B2D/FFFFFF?text=Skiddle+Generated&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Skiddle%20Generated)
+
+  </td></tr></table>
+</div>
+
 ## ⚖️ Disclaimer & Sources
 
 I do not own the copyright to the wallpapers in this repository. These images were collected for personal use from various public sources, including:
