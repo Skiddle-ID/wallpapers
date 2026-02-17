@@ -2,13 +2,19 @@
 
 A curated collection of wallpapers organized for system-wide theme switching and personal use.
 
-## 📂 Structure
+## 📂 Categories
 
-* **Anime**: Dedicated collection of anime-themed backgrounds and art.
-* **Calm**: Dedicated collection of calm-themed backgrounds and art.
-* **Games**: Dedicated collection of game-themed backgrounds and art.
-* **Pokémon**: Dedicated collection of Pokémon-themed backgrounds and art.
-* **Unsorted**: New additions and miscellaneous wallpapers awaiting categorization.
+<div align="center">
+  <table><tr><td>
+
+[![Anime](https://placehold.co/130x30/FF6B9D/FFFFFF?text=Anime&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Anime)
+[![Calm](https://placehold.co/130x30/89E5AE/1E3A28?text=Calm&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Calm)
+[![Games](https://placehold.co/130x30/7B2CBF/E0AAFF?text=Games&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Games)
+[![Pokémon](https://placehold.co/130x30/FFCB05/3D7DCA?text=Pokémon&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Pokémon)
+[![Unsorted](https://placehold.co/130x30/6C757D/DEE2E6?text=Unsorted&font=Oswald)](https://github.com/Skiddle-ID/wallpapers/tree/main/Unsorted)
+
+  </td></tr></table>
+</div>
 
 ## ⚖️ Disclaimer & Sources
 
