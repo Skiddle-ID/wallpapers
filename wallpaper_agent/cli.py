@@ -1,0 +1,268 @@
+"""Command Line Interface for the Wallpaper Collection Agent."""
+
+import argparse
+import sys
+from pathlib import Path
+
+from .classifier import classify_image
+from .config import CATEGORIES, INCOMING_DIR, TYPES, WALLPAPERS_DIR
+from .db import (
+    find_visual_duplicates,
+    get_all_wallpapers,
+    get_connection,
+    get_stats,
+    get_wallpaper_by_id,
+    init_db,
+)
+from .migrator import migrate_legacy_collection
+from .pipeline import download_image, process_image, process_incoming
+from .storage import ensure_storage_structure
+
+
+def format_bytes(size: int) -> str:
+    """Format bytes to human readable format."""
+    for unit in ["B", "KB", "MB", "GB", "TB"]:
+        if size < 1024.0:
+            return f"{size:.2f} {unit}"
+        size /= 1024.0
+    return f"{size:.2f} PB"
+
+
+def cmd_init(args: argparse.Namespace) -> None:
+    """Initialize database and directory hierarchy."""
+    init_db()
+    ensure_storage_structure()
+    print("Database and folder structure initialized successfully.")
+
+
+def cmd_stats(args: argparse.Namespace) -> None:
+    """Display wallpaper collection statistics."""
+    init_db()
+    stats = get_stats()
+
+    print("\n" + "=" * 50)
+    print(" WALLPAPER COLLECTION STATISTICS")
+    print("=" * 50)
+    print(f"Total Wallpapers (>= 2K): {stats['total']:,}")
+    print(f"Total Library Size:       {format_bytes(stats['total_size_bytes'])}")
+    if stats["avg_width"] and stats["avg_height"]:
+        print(f"Average Resolution:       {stats['avg_width']} x {stats['avg_height']}")
+
+    print("\n--- By Classification Type ---")
+    for t in TYPES:
+        count = stats["by_type"].get(t, 0)
+        pct = (count / stats["total"] * 100) if stats["total"] > 0 else 0
+        print(f"  {t:<10}: {count:>5} ({pct:>5.1f}%)")
+
+    print("\n--- By Category ---")
+    for cat in CATEGORIES:
+        count = stats["by_category"].get(cat, 0)
+        if count > 0:
+            pct = (count / stats["total"] * 100) if stats["total"] > 0 else 0
+            print(f"  {cat:<15}: {count:>5} ({pct:>5.1f}%)")
+
+    print("\n--- By Orientation ---")
+    for orient, count in sorted(stats["by_orientation"].items()):
+        pct = (count / stats["total"] * 100) if stats["total"] > 0 else 0
+        print(f"  {orient:<15}: {count:>5} ({pct:>5.1f}%)")
+    print("=" * 50 + "\n")
+
+
+def cmd_process(args: argparse.Namespace) -> None:
+    """Process all files in the incoming directory."""
+    incoming_dir = Path(args.incoming) if args.incoming else INCOMING_DIR
+    print(f"Processing incoming directory: {incoming_dir}")
+    res = process_incoming(incoming_dir=incoming_dir)
+
+    print(f"\nIncoming Batch Results:")
+    print(f"  Total scanned: {res['total']}")
+    print(f"  Completed:     {res['completed']}")
+    print(f"  Rejected (<2K):{res['rejected']}")
+    print(f"  Duplicates:    {res['duplicate']}")
+    print(f"  Failed:        {res['failed']}")
+
+
+def cmd_add(args: argparse.Namespace) -> None:
+    """Add a single wallpaper file or URL to the library."""
+    target = args.target
+    is_url = target.startswith("http://") or target.startswith("https://")
+
+    if is_url:
+        print(f"Downloading from URL: {target}...")
+        try:
+            file_path = download_image(target)
+            source_url = target
+            source = args.source or "Web Download"
+        except Exception as e:
+            print(f"Download failed: {e}")
+            sys.exit(1)
+    else:
+        file_path = Path(target)
+        source_url = None
+        source = args.source or "CLI Add"
+
+    result = process_image(
+        file_path=file_path,
+        source=source,
+        source_url=source_url,
+        category_hint=args.category,
+        type_hint=args.type,
+        move=is_url or args.move,
+    )
+
+    print(f"Status: {result.status}")
+    print(f"Reason: {result.reason}")
+    if result.wallpaper_id:
+        print(f"Saved:  {result.target_path}")
+
+
+def cmd_migrate(args: argparse.Namespace) -> None:
+    """Migrate legacy repository wallpaper folders."""
+    print("Starting migration of legacy wallpaper folders...")
+    summary = migrate_legacy_collection(clean_old=args.clean)
+
+    print("\n" + "=" * 50)
+    print(" MIGRATION SUMMARY")
+    print("=" * 50)
+    print(f"Total Scanned:         {summary['scanned']}")
+    print(f"Accepted (2K+):        {summary['completed']}")
+    print(f"Rejected (< 2K):       {summary['rejected_under_2k']}")
+    print(f"Duplicates (Skipped):  {summary['duplicates']}")
+    print(f"Failed:                {summary['failed']}")
+
+    print("\nBreakdown by Legacy Folder:")
+    for folder, st in summary["by_folder"].items():
+        print(f"  {folder:<20}: Total={st['total']:3} | Accepted={st['completed']:3} | Rejected={st['rejected']:3} | Dups={st['duplicate']:3}")
+    print("=" * 50 + "\n")
+
+
+def cmd_verify(args: argparse.Namespace) -> None:
+    """Verify consistency between database and filesystem."""
+    init_db()
+    wallpapers = get_all_wallpapers()
+    print(f"Verifying {len(wallpapers)} database records against filesystem...")
+
+    missing_files = []
+    for w in wallpapers:
+        w_type = w["type"]
+        w_cat = w["category"]
+        w_filename = w["filename"]
+        expected_path = WALLPAPERS_DIR / w_type / w_cat / w_filename
+
+        if not expected_path.exists():
+            missing_files.append((w["id"], str(expected_path)))
+
+    if missing_files:
+        print(f"WARNING: {len(missing_files)} missing files found on disk:")
+        for w_id, path_str in missing_files[:10]:
+            print(f"  ID {w_id}: {path_str}")
+        if len(missing_files) > 10:
+            print(f"  ... and {len(missing_files) - 10} more.")
+    else:
+        print("All database records match files on disk perfectly.")
+
+
+def cmd_search(args: argparse.Namespace) -> None:
+    """Search wallpapers by filters."""
+    init_db()
+    with get_connection() as conn:
+        cursor = conn.cursor()
+        query = "SELECT id, filename, type, category, width, height, aspect_ratio, format FROM wallpapers WHERE 1=1"
+        params = []
+
+        if args.type:
+            query += " AND type = ?"
+            params.append(args.type)
+        if args.category:
+            query += " AND category = ?"
+            params.append(args.category)
+        if args.orientation:
+            query += " AND orientation = ?"
+            params.append(args.orientation)
+        if args.min_width:
+            query += " AND width >= ?"
+            params.append(args.min_width)
+
+        query += " ORDER BY id ASC LIMIT ?"
+        params.append(args.limit or 50)
+
+        cursor.execute(query, params)
+        rows = cursor.fetchall()
+
+        print(f"\nFound {len(rows)} matching wallpapers:")
+        for r in rows:
+            print(f"  ID {r['id']:<5} | {r['type']:<8} | {r['category']:<12} | {r['width']}x{r['height']} ({r['aspect_ratio']}) | {r['filename']}")
+
+
+def build_parser() -> argparse.ArgumentParser:
+    """Build CLI argument parser."""
+    parser = argparse.ArgumentParser(
+        prog="wallpaper-agent",
+        description="Automated Wallpaper Collection, Validation, Classification, and Deduplication Agent."
+    )
+    subparsers = parser.add_subparsers(dest="command", help="Available commands")
+
+    # init
+    subparsers.add_parser("init", help="Initialize database and folder structure")
+
+    # stats
+    subparsers.add_parser("stats", help="Show wallpaper library statistics")
+
+    # process
+    p_proc = subparsers.add_parser("process", help="Process incoming wallpapers")
+    p_proc.add_argument("--incoming", "-i", type=str, help="Custom incoming directory")
+
+    # add
+    p_add = subparsers.add_parser("add", help="Add a single image or URL")
+    p_add.add_argument("target", help="File path or URL of wallpaper")
+    p_add.add_argument("--type", "-t", choices=TYPES, help="Classification type override (AI, NON-AI, UNKNOWN)")
+    p_add.add_argument("--category", "-c", choices=CATEGORIES, help="Category override")
+    p_add.add_argument("--source", "-s", help="Source name or credit")
+    p_add.add_argument("--move", "-m", action="store_true", help="Move source file instead of copying")
+
+    # migrate
+    p_mig = subparsers.add_parser("migrate", help="Migrate legacy folders into standardized archive")
+    p_mig.add_argument("--clean", action="store_true", help="Clean up legacy folders after migration")
+
+    # verify
+    subparsers.add_parser("verify", help="Verify database integrity against disk")
+
+    # search
+    p_srch = subparsers.add_parser("search", help="Search wallpaper records")
+    p_srch.add_argument("--type", "-t", choices=TYPES, help="Filter by type")
+    p_srch.add_argument("--category", "-c", choices=CATEGORIES, help="Filter by category")
+    p_srch.add_argument("--orientation", "-o", help="Filter by orientation (Landscape, Portrait, Ultrawide, Square)")
+    p_srch.add_argument("--min-width", type=int, help="Minimum width in pixels")
+    p_srch.add_argument("--limit", "-l", type=int, default=50, help="Maximum results")
+
+    return parser
+
+
+def main() -> None:
+    """CLI entry point."""
+    parser = build_parser()
+    args = parser.parse_args()
+
+    if not args.command:
+        parser.print_help()
+        sys.exit(0)
+
+    commands = {
+        "init": cmd_init,
+        "stats": cmd_stats,
+        "process": cmd_process,
+        "add": cmd_add,
+        "migrate": cmd_migrate,
+        "verify": cmd_verify,
+        "search": cmd_search,
+    }
+
+    cmd_func = commands.get(args.command)
+    if cmd_func:
+        cmd_func(args)
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()

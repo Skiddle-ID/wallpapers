@@ -1,4 +1,20 @@
-Dynamic-Wallpapers/
+# OS artifacts
 .DS_Store
 Thumbs.db
 .directory
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# Collection Agent
+incoming/*
+!incoming/.gitkeep
+*.db-journal
+*.db-wal
+*.db-shm
