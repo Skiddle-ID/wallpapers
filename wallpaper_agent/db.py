@@ -1,8 +1,9 @@
 """SQLite Database Manager for Wallpaper Metadata."""
 
 import sqlite3
+from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Generator, List, Optional, Tuple
 import imagehash
 
 from .config import DB_PATH
@@ -15,9 +16,23 @@ def get_connection(db_path: Path = DB_PATH) -> sqlite3.Connection:
     return conn
 
 
+@contextmanager
+def db_session(db_path: Path = DB_PATH) -> Generator[sqlite3.Connection, None, None]:
+    """Context manager for database connections ensuring clean commit and closure."""
+    conn = get_connection(db_path)
+    try:
+        yield conn
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
+
+
 def init_db(db_path: Path = DB_PATH) -> None:
     """Initialize database schema with all required and recommended metadata fields."""
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS wallpapers (
@@ -48,12 +63,11 @@ def init_db(db_path: Path = DB_PATH) -> None:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_wallpapers_type ON wallpapers(type)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_wallpapers_category ON wallpapers(category)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_wallpapers_phash ON wallpapers(perceptual_hash)")
-        conn.commit()
 
 
 def get_next_id(db_path: Path = DB_PATH) -> int:
     """Get the next sequential permanent database ID."""
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT MAX(id) FROM wallpapers")
         row = cursor.fetchone()
@@ -76,19 +90,18 @@ def insert_wallpaper(metadata: Dict[str, Any], db_path: Path = DB_PATH) -> int:
     placeholders = ", ".join("?" for _ in insert_data)
     values = list(insert_data.values())
 
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
         cursor.execute(
             f"INSERT INTO wallpapers ({columns}) VALUES ({placeholders})",
             values
         )
-        conn.commit()
         return insert_data.get("id", cursor.lastrowid)
 
 
 def get_wallpaper_by_id(wallpaper_id: int, db_path: Path = DB_PATH) -> Optional[Dict[str, Any]]:
     """Retrieve wallpaper by permanent ID."""
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM wallpapers WHERE id = ?", (wallpaper_id,))
         row = cursor.fetchone()
@@ -97,7 +110,7 @@ def get_wallpaper_by_id(wallpaper_id: int, db_path: Path = DB_PATH) -> Optional[
 
 def get_wallpaper_by_sha256(sha256_hash: str, db_path: Path = DB_PATH) -> Optional[Dict[str, Any]]:
     """Retrieve wallpaper by SHA-256 hash."""
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM wallpapers WHERE sha256 = ?", (sha256_hash,))
         row = cursor.fetchone()
@@ -122,7 +135,7 @@ def find_visual_duplicates(
         return []
 
     duplicates = []
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM wallpapers WHERE perceptual_hash IS NOT NULL")
         for row in cursor.fetchall():
@@ -144,7 +157,7 @@ def find_visual_duplicates(
 
 def get_all_wallpapers(db_path: Path = DB_PATH) -> List[Dict[str, Any]]:
     """Get all wallpaper records from the database."""
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM wallpapers ORDER BY id ASC")
         return [dict(row) for row in cursor.fetchall()]
@@ -152,7 +165,7 @@ def get_all_wallpapers(db_path: Path = DB_PATH) -> List[Dict[str, Any]]:
 
 def get_stats(db_path: Path = DB_PATH) -> Dict[str, Any]:
     """Calculate overall statistics from the database."""
-    with get_connection(db_path) as conn:
+    with db_session(db_path) as conn:
         cursor = conn.cursor()
 
         cursor.execute("SELECT COUNT(*) FROM wallpapers")

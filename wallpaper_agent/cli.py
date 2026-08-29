@@ -7,16 +7,17 @@ from pathlib import Path
 from .classifier import classify_image
 from .config import CATEGORIES, INCOMING_DIR, TYPES, WALLPAPERS_DIR
 from .db import (
+    db_session,
     find_visual_duplicates,
     get_all_wallpapers,
-    get_connection,
     get_stats,
     get_wallpaper_by_id,
     init_db,
 )
+from .downloaders.wallhaven import WallhavenDownloader
 from .migrator import migrate_legacy_collection
 from .pipeline import download_image, process_image, process_incoming
-from .storage import ensure_storage_structure
+from .storage import ensure_storage_structure, prune_empty_folders
 
 
 def format_bytes(size: int) -> str:
@@ -32,7 +33,7 @@ def cmd_init(args: argparse.Namespace) -> None:
     """Initialize database and directory hierarchy."""
     init_db()
     ensure_storage_structure()
-    print("Database and folder structure initialized successfully.")
+    print("Database and storage directory initialized successfully.")
 
 
 def cmd_stats(args: argparse.Namespace) -> None:
@@ -116,6 +117,50 @@ def cmd_add(args: argparse.Namespace) -> None:
         print(f"Saved:  {result.target_path}")
 
 
+def cmd_wallhaven(args: argparse.Namespace) -> None:
+    """Download and ingest wallpapers from Wallhaven."""
+    downloader = WallhavenDownloader(
+        api_key=args.apikey,
+        delay_seconds=args.delay,
+    )
+
+    if args.id:
+        print(f"Fetching Wallhaven wallpaper: {args.id}...")
+        res = downloader.download_and_ingest_single(
+            wallpaper_id=args.id,
+            category_hint=args.category,
+            type_hint=args.type,
+        )
+        print(f"Status: {res['status']}")
+        print(f"Reason: {res['reason']}")
+        if res.get("wallpaper_id"):
+            print(f"Saved:  ID {res['wallpaper_id']} ({res['target_path']})")
+        return
+
+    print(f"Searching Wallhaven: query='{args.query or '*'}' (sorting={args.sort}, limit={args.limit})...")
+    res = downloader.batch_collect(
+        query=args.query,
+        limit=args.limit,
+        categories=args.categories,
+        purity=args.purity,
+        sorting=args.sort,
+        top_range=args.top_range,
+        ratios=args.ratios,
+        category_hint=args.category,
+        type_hint=args.type,
+    )
+
+    print("\n" + "=" * 50)
+    print(" WALLHAVEN BATCH RESULTS")
+    print("=" * 50)
+    print(f"Total Scanned:  {res['total_scanned']}")
+    print(f"Ingested (2K+): {res['completed']}")
+    print(f"Rejected (<2K): {res['rejected']}")
+    print(f"Duplicates:     {res['duplicates']}")
+    print(f"Failed:         {res['failed']}")
+    print("=" * 50 + "\n")
+
+
 def cmd_migrate(args: argparse.Namespace) -> None:
     """Migrate legacy repository wallpaper folders."""
     print("Starting migration of legacy wallpaper folders...")
@@ -139,6 +184,7 @@ def cmd_migrate(args: argparse.Namespace) -> None:
 def cmd_verify(args: argparse.Namespace) -> None:
     """Verify consistency between database and filesystem."""
     init_db()
+    prune_empty_folders()
     wallpapers = get_all_wallpapers()
     print(f"Verifying {len(wallpapers)} database records against filesystem...")
 
@@ -165,7 +211,7 @@ def cmd_verify(args: argparse.Namespace) -> None:
 def cmd_search(args: argparse.Namespace) -> None:
     """Search wallpapers by filters."""
     init_db()
-    with get_connection() as conn:
+    with db_session() as conn:
         cursor = conn.cursor()
         query = "SELECT id, filename, type, category, width, height, aspect_ratio, format FROM wallpapers WHERE 1=1"
         params = []
@@ -220,6 +266,21 @@ def build_parser() -> argparse.ArgumentParser:
     p_add.add_argument("--source", "-s", help="Source name or credit")
     p_add.add_argument("--move", "-m", action="store_true", help="Move source file instead of copying")
 
+    # wallhaven
+    p_wh = subparsers.add_parser("wallhaven", help="Download wallpapers from Wallhaven.cc")
+    p_wh.add_argument("--query", "-q", type=str, help="Search query or tag (e.g. cyberpunk, anime, landscape)")
+    p_wh.add_argument("--id", type=str, help="Single Wallhaven wallpaper ID or URL (e.g. 1k7j9w)")
+    p_wh.add_argument("--limit", "-n", type=int, default=5, help="Number of wallpapers to download (default: 5)")
+    p_wh.add_argument("--sort", "-s", choices=["toplist", "hot", "views", "random", "date_added"], default="toplist", help="Sorting method")
+    p_wh.add_argument("--top-range", choices=["1d", "3d", "1w", "1M", "3M", "6M", "1y"], default="1M", help="Toplist time range")
+    p_wh.add_argument("--categories", default="111", help="Categories mask: General/Anime/People (e.g. 111 or 010)")
+    p_wh.add_argument("--purity", default="100", help="Purity mask: SFW/Sketchy/NSFW (default: 100 SFW)")
+    p_wh.add_argument("--ratios", type=str, help="Filter aspect ratios (e.g. 16x9, 21x9)")
+    p_wh.add_argument("--category", "-c", choices=CATEGORIES, help="Category override")
+    p_wh.add_argument("--type", "-t", choices=TYPES, help="Type override (AI, NON-AI, UNKNOWN)")
+    p_wh.add_argument("--apikey", type=str, help="Wallhaven API key")
+    p_wh.add_argument("--delay", type=float, default=1.0, help="Delay between downloads in seconds (default: 1.0)")
+
     # migrate
     p_mig = subparsers.add_parser("migrate", help="Migrate legacy folders into standardized archive")
     p_mig.add_argument("--clean", action="store_true", help="Clean up legacy folders after migration")
@@ -252,6 +313,7 @@ def main() -> None:
         "stats": cmd_stats,
         "process": cmd_process,
         "add": cmd_add,
+        "wallhaven": cmd_wallhaven,
         "migrate": cmd_migrate,
         "verify": cmd_verify,
         "search": cmd_search,

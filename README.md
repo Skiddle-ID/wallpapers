@@ -72,7 +72,7 @@ Wallpapers/
 Every ingested wallpaper undergoes automated processing:
 
 ```text
-Incoming Wallpaper
+Incoming Wallpaper / Web Stream
         ↓
 Image Validation (Decode & Integrity)
         ↓
@@ -110,13 +110,27 @@ pip install -r requirements.txt
 python agent.py stats
 ```
 
-### 3. Process Incoming Wallpapers
-Drop files into `incoming/` and run:
+### 3. Automated Wallhaven Downloader
+Download 2K+ wallpapers directly from Wallhaven:
+
+```bash
+# Download top 10 monthly wallpapers matching a query
+python agent.py wallhaven --query "cyberpunk" --limit 10 --sort toplist --top-range 1M
+
+# Collect 2K+ Anime wallpapers
+python agent.py wallhaven --query "anime girl" --limit 5 --category Anime --type NON-AI
+
+# Download a specific Wallhaven wallpaper by ID or URL
+python agent.py wallhaven --id 1k7j9w
+```
+
+### 4. Process Incoming Directory
+Drop local images into `incoming/` and run:
 ```bash
 python agent.py process
 ```
 
-### 4. Ingest a Single File or URL
+### 5. Ingest Single File or URL
 ```bash
 # Add local image
 python agent.py add path/to/wallpaper.png
@@ -125,12 +139,12 @@ python agent.py add path/to/wallpaper.png
 python agent.py add "https://example.com/wallpaper.jpg" --type NON-AI --category Anime
 ```
 
-### 5. Search Collection
+### 6. Search Collection
 ```bash
 python agent.py search --category Anime --min-width 3840
 ```
 
-### 6. Verify Filesystem Integrity
+### 7. Verify Filesystem Integrity
 ```bash
 python agent.py verify
 ```
@@ -153,6 +167,8 @@ The SQLite database acts as the single source of truth:
 | `filesize` | `INTEGER` | Size in bytes |
 | `sha256` | `TEXT UNIQUE` | Cryptographic hash |
 | `perceptual_hash` | `TEXT` | pHash for visual similarity |
+| `source` | `TEXT` | Source platform / uploader |
+| `source_url` | `TEXT` | Original source webpage URL |
 | `aspect_ratio` | `TEXT` | Common ratio (e.g. `16:9`, `21:9`) |
 | `orientation` | `TEXT` | `Landscape`, `Portrait`, `Ultrawide`, `Square` |
 | `created_at` | `TIMESTAMP` | Record timestamp |

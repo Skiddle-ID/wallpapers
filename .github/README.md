@@ -54,6 +54,9 @@ pip install -r requirements.txt
 # Check stats
 python agent.py stats
 
+# Download 2K+ wallpapers from Wallhaven
+python agent.py wallhaven --query "cyberpunk" --limit 5
+
 # Process incoming folder
 python agent.py process
 ```
