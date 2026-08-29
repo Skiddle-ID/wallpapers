@@ -1,0 +1,54 @@
+{
+  "settings": {
+    "delay_seconds": 1.5,
+    "purity": "100",
+    "min_resolution": "2560x1440",
+    "default_limit_per_target": 5
+  },
+  "targets": [
+    {
+      "name": "Top Monthly Wallpapers",
+      "query": null,
+      "sorting": "toplist",
+      "top_range": "1M",
+      "categories": "111",
+      "limit": 5
+    },
+    {
+      "name": "Cyberpunk & Neon",
+      "query": "cyberpunk",
+      "sorting": "hot",
+      "category_hint": "Cyberpunk",
+      "type_hint": "UNKNOWN",
+      "limit": 5
+    },
+    {
+      "name": "Anime Art",
+      "query": "anime",
+      "sorting": "toplist",
+      "top_range": "1M",
+      "categories": "010",
+      "category_hint": "Anime",
+      "type_hint": "NON-AI",
+      "limit": 5
+    },
+    {
+      "name": "Landscape & Mountains",
+      "query": "landscape",
+      "sorting": "toplist",
+      "top_range": "1M",
+      "category_hint": "Landscape",
+      "type_hint": "UNKNOWN",
+      "limit": 5
+    },
+    {
+      "name": "Deep Space & Galaxies",
+      "query": "space",
+      "sorting": "toplist",
+      "top_range": "1M",
+      "category_hint": "Space",
+      "type_hint": "UNKNOWN",
+      "limit": 5
+    }
+  ]
+}

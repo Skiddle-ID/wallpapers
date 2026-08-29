@@ -4,6 +4,7 @@ import argparse
 import sys
 from pathlib import Path
 
+from .auto_collector import AutoCollector, DEFAULT_CONFIG_PATH
 from .classifier import classify_image
 from .config import CATEGORIES, INCOMING_DIR, TYPES, WALLPAPERS_DIR
 from .db import (
@@ -161,6 +162,30 @@ def cmd_wallhaven(args: argparse.Namespace) -> None:
     print("=" * 50 + "\n")
 
 
+def cmd_auto(args: argparse.Namespace) -> None:
+    """Run automated wallpaper collection cycle or continuous daemon."""
+    config_path = Path(args.config) if args.config else DEFAULT_CONFIG_PATH
+    collector = AutoCollector(
+        config_path=config_path,
+        api_key=args.apikey,
+    )
+
+    if args.run_once:
+        summary = collector.run_cycle()
+        print("\n" + "=" * 50)
+        print(" AUTOMATED COLLECTION SUMMARY")
+        print("=" * 50)
+        print(f"Targets Processed: {summary['targets_count']}")
+        print(f"Total Scanned:     {summary['total_scanned']}")
+        print(f"Ingested (2K+):    {summary['total_ingested']}")
+        print(f"Duplicates:        {summary['total_duplicates']}")
+        print(f"Under 2K:          {summary['total_rejected']}")
+        print(f"Failed:            {summary['total_failed']}")
+        print("=" * 50 + "\n")
+    else:
+        collector.run_continuous(interval_seconds=args.interval)
+
+
 def cmd_migrate(args: argparse.Namespace) -> None:
     """Migrate legacy repository wallpaper folders."""
     print("Starting migration of legacy wallpaper folders...")
@@ -281,6 +306,13 @@ def build_parser() -> argparse.ArgumentParser:
     p_wh.add_argument("--apikey", type=str, help="Wallhaven API key")
     p_wh.add_argument("--delay", type=float, default=1.0, help="Delay between downloads in seconds (default: 1.0)")
 
+    # auto
+    p_auto = subparsers.add_parser("auto", help="Run automated wallpaper collection daemon or batch cycle")
+    p_auto.add_argument("--run-once", action="store_true", help="Run one single collection cycle and exit")
+    p_auto.add_argument("--interval", "-i", type=int, default=3600, help="Continuous loop interval in seconds (default: 3600)")
+    p_auto.add_argument("--config", "-c", type=str, help="Path to custom collector_config.json")
+    p_auto.add_argument("--apikey", type=str, help="Wallhaven API key")
+
     # migrate
     p_mig = subparsers.add_parser("migrate", help="Migrate legacy folders into standardized archive")
     p_mig.add_argument("--clean", action="store_true", help="Clean up legacy folders after migration")
@@ -314,6 +346,7 @@ def main() -> None:
         "process": cmd_process,
         "add": cmd_add,
         "wallhaven": cmd_wallhaven,
+        "auto": cmd_auto,
         "migrate": cmd_migrate,
         "verify": cmd_verify,
         "search": cmd_search,

@@ -38,9 +38,9 @@ Wallpapers/
 
 ## 📊 Collection Summary
 
-* **Total 2K+ Wallpapers**: 311
-* **Total Library Size**: 1.10 GB
-* **Average Resolution**: 3869 × 2220 px
+* **Total 2K+ Wallpapers**: 317
+* **Total Library Size**: 1.13 GB
+* **Average Resolution**: 3871 × 2217 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -51,14 +51,14 @@ Wallpapers/
 # Install dependencies
 pip install -r requirements.txt
 
-# Check stats
+# Run one automated collection cycle across all configured topics
+python agent.py auto --run-once
+
+# Start continuous collection daemon (every 1 hour)
+python agent.py auto --interval 3600
+
+# Check library stats
 python agent.py stats
-
-# Download 2K+ wallpapers from Wallhaven
-python agent.py wallhaven --query "cyberpunk" --limit 5
-
-# Process incoming folder
-python agent.py process
 ```
 
 ---
