@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 384
-* **Total Library Size**: 1.50 GB
-* **Average Resolution**: 4033 × 2328 px
+* **Total Curated Wallpapers**: 429
+* **Total Library Size**: 1.78 GB
+* **Average Resolution**: 4108 × 2355 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -21,22 +21,22 @@ Wallpapers are stored in high-resolution format directly under their respective 
 Curated/
 ├── Abstract/ (3 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (212 wallpapers)
+├── Anime/ (217 wallpapers)
 ├── Architecture/ (25 wallpapers)
 ├── City/ (9 wallpapers)
 ├── Comics/ (1 wallpapers)
-├── Cyberpunk/ (4 wallpapers)
+├── Cyberpunk/ (19 wallpapers)
 ├── Fantasy/ (19 wallpapers)
 ├── Gaming/ (28 wallpapers)
-├── Landscape/ (24 wallpapers)
+├── Landscape/ (25 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (4 wallpapers)
 ├── Nature/ (8 wallpapers)
 ├── Ocean/ (7 wallpapers)
-├── Other/ (28 wallpapers)
+├── Other/ (47 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
 ├── Sci-Fi/ (1 wallpapers)
-└── Space/ (6 wallpapers)
+└── Space/ (11 wallpapers)
 ```
 
 ---
@@ -45,17 +45,17 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **212** | Anime, manga, waifu, chibi, Ghibli |
-| `Other` | **28** | Miscellaneous high-resolution art |
+| `Anime` | **217** | Anime, manga, waifu, chibi, Ghibli |
+| `Other` | **47** | Miscellaneous high-resolution art |
 | `Gaming` | **28** | Video game art, characters, esports |
+| `Landscape` | **25** | Mountains, lakes, rivers, sunsets, horizons |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
-| `Landscape` | **24** | Mountains, lakes, rivers, sunsets, horizons |
 | `Fantasy` | **19** | Castles, dragons, mythical creatures, magic |
+| `Cyberpunk` | **19** | Neon cities, synthwave, futuristic metropolis |
+| `Space` | **11** | Galaxies, nebulas, solar systems, planets |
 | `City` | **9** | Skylines, Tokyo streets, urban nightscapes |
 | `Nature` | **8** | Forests, plants, waterfalls, flowers, jungle |
 | `Ocean` | **7** | Beaches, coastal waves, underwater coral |
-| `Space` | **6** | Galaxies, nebulas, solar systems, planets |
-| `Cyberpunk` | **4** | Neon cities, synthwave, futuristic metropolis |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `Abstract` | **3** | Gradients, geometric shapes, 3D renders, fluid art |
