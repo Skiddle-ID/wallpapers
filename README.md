@@ -39,6 +39,38 @@ Curated/
 
 ---
 
+## 🏷️ 25 Official Categories
+
+| Category | Description / Examples |
+|---|---|
+| `Abstract` | Gradients, geometric shapes, 3D renders, fluid art |
+| `Animals` | Wildlife, cats, dogs, wolves, birds, marine life |
+| `Anime` | Anime, manga, waifu, chibi, Ghibli |
+| `Architecture` | Bridges, temples, cathedrals, modern structures |
+| `Cars` | Supercars, racing, sports cars, drift |
+| `City` | Skylines, Tokyo streets, urban nightscapes |
+| `Comics` | Marvel, DC, superheroes, Batman, Spider-Man |
+| `Cyberpunk` | Neon cities, synthwave, futuristic metropolis |
+| `Digital Art` | Concept art, CGI, ArtStation illustrations |
+| `Fantasy` | Castles, dragons, mythical creatures, magic |
+| `Gaming` | Video game art, characters, esports |
+| `Horror` | Gothic art, dark fantasy, skulls, monsters |
+| `Landscape` | Mountains, lakes, rivers, sunsets, horizons |
+| `Military` | Fighter jets, naval ships, aviation, armor |
+| `Minimalism` | Flat vector art, OLED/AMOLED, clean geometry |
+| `Music` | Instruments, concerts, guitars, synth |
+| `Nature` | Forests, plants, waterfalls, flowers, jungle |
+| `Ocean` | Beaches, coastal waves, underwater coral |
+| `People` | Portraits, models, human photography |
+| `Pixel Art` | 8-bit, 16-bit, retro arcade scenery, voxels |
+| `Sci-Fi` | Spaceships, robots, aliens, futuristic tech |
+| `Space` | Galaxies, nebulas, solar systems, planets |
+| `Sports` | Basketball, skateboarding, surfing, athletics |
+| `Vehicles` | Motorcycles, aircraft, trains, yachts |
+| `Other` | Miscellaneous high-resolution art |
+
+---
+
 ## 📐 Quality Standards
 
 * **Minimum Resolution**: ≥ 2K QHD (2560 × 1440 or 3,686,400+ total pixels).

@@ -1,4 +1,53 @@
-Dynamic-Wallpapers/
+# OS artifacts
 .DS_Store
 Thumbs.db
 .directory
+
+# Python caches, testing, and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Machine Learning model caches & weights
+.cache/
+.huggingface/
+hf_cache/
+models/
+*.onnx
+*.pt
+*.bin
+*.safetensors
+
+# Wallpaper download, buffer & temporary caches
+incoming/
+downloads/
+cache/
+temp/
+tmp/
+*.tmp
+*.log
+
+# Database & SQLite files
+*.db
+*.sqlite
+*.sqlite3
+wallpapers.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Python scripts, Agent code, configs & Tests
+*.py
+wallpaper_agent/
+tests/
+collector_config.json
+requirements.txt
+
+# Local Bulk Wallpaper Storage (Only manually curated wallpapers in Curated/ are published)
+Wallpapers/
