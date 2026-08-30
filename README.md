@@ -4,70 +4,69 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ---
 
+## 📊 Collection Statistics
+
+* **Total Curated Wallpapers**: 330
+* **Total Library Size**: 1.20 GB
+* **Average Resolution**: 4042 × 2339 px
+* **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
+
+---
+
 ## 📂 Categories & Organization
 
 Wallpapers are stored in high-resolution format directly under their respective category folders in **`Curated/`**:
 
 ```text
 Curated/
-├── Abstract/
-├── Animals/
-├── Anime/
-├── Architecture/
-├── Cars/
-├── City/
-├── Comics/
-├── Cyberpunk/
-├── Digital Art/
-├── Fantasy/
-├── Gaming/
-├── Horror/
-├── Landscape/
-├── Military/
-├── Minimalism/
-├── Music/
-├── Nature/
-├── Ocean/
-├── People/
-├── Pixel Art/
-├── Sci-Fi/
-├── Space/
-├── Sports/
-├── Vehicles/
-└── Other/
+├── Abstract/ (1 wallpapers)
+├── Animals/ (2 wallpapers)
+├── Anime/ (196 wallpapers)
+├── Architecture/ (25 wallpapers)
+├── City/ (1 wallpapers)
+├── Comics/ (1 wallpapers)
+├── Fantasy/ (19 wallpapers)
+├── Gaming/ (28 wallpapers)
+├── Landscape/ (24 wallpapers)
+├── Minimalism/ (1 wallpapers)
+├── Music/ (4 wallpapers)
+├── Nature/ (7 wallpapers)
+├── Ocean/ (7 wallpapers)
+├── Other/ (13 wallpapers)
+└── Pixel Art/ (1 wallpapers)
 ```
 
 ---
 
 ## 🏷️ 25 Official Categories
 
-| Category | Description / Examples |
-|---|---|
-| `Abstract` | Gradients, geometric shapes, 3D renders, fluid art |
-| `Animals` | Wildlife, cats, dogs, wolves, birds, marine life |
-| `Anime` | Anime, manga, waifu, chibi, Ghibli |
-| `Architecture` | Bridges, temples, cathedrals, modern structures |
-| `Cars` | Supercars, racing, sports cars, drift |
-| `City` | Skylines, Tokyo streets, urban nightscapes |
-| `Comics` | Marvel, DC, superheroes, Batman, Spider-Man |
-| `Cyberpunk` | Neon cities, synthwave, futuristic metropolis |
-| `Digital Art` | Concept art, CGI, ArtStation illustrations |
-| `Fantasy` | Castles, dragons, mythical creatures, magic |
-| `Gaming` | Video game art, characters, esports |
-| `Horror` | Gothic art, dark fantasy, skulls, monsters |
-| `Landscape` | Mountains, lakes, rivers, sunsets, horizons |
-| `Military` | Fighter jets, naval ships, aviation, armor |
-| `Minimalism` | Flat vector art, OLED/AMOLED, clean geometry |
-| `Music` | Instruments, concerts, guitars, synth |
-| `Nature` | Forests, plants, waterfalls, flowers, jungle |
-| `Ocean` | Beaches, coastal waves, underwater coral |
-| `People` | Portraits, models, human photography |
-| `Pixel Art` | 8-bit, 16-bit, retro arcade scenery, voxels |
-| `Sci-Fi` | Spaceships, robots, aliens, futuristic tech |
-| `Space` | Galaxies, nebulas, solar systems, planets |
-| `Sports` | Basketball, skateboarding, surfing, athletics |
-| `Vehicles` | Motorcycles, aircraft, trains, yachts |
-| `Other` | Miscellaneous high-resolution art |
+| Category | Wallpapers | Description / Examples |
+|---|:---:|---|
+| `Anime` | **196** | Anime, manga, waifu, chibi, Ghibli |
+| `Gaming` | **28** | Video game art, characters, esports |
+| `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
+| `Landscape` | **24** | Mountains, lakes, rivers, sunsets, horizons |
+| `Fantasy` | **19** | Castles, dragons, mythical creatures, magic |
+| `Other` | **13** | Miscellaneous high-resolution art |
+| `Nature` | **7** | Forests, plants, waterfalls, flowers, jungle |
+| `Ocean` | **7** | Beaches, coastal waves, underwater coral |
+| `Music` | **4** | Instruments, concerts, guitars, synth |
+| `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
+| `City` | **1** | Skylines, Tokyo streets, urban nightscapes |
+| `Abstract` | **1** | Gradients, geometric shapes, 3D renders, fluid art |
+| `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
+| `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
+| `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
+| `Cars` | 0 | Supercars, racing, sports cars, drift |
+| `Cyberpunk` | 0 | Neon cities, synthwave, futuristic metropolis |
+| `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
+| `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
+| `Military` | 0 | Fighter jets, naval ships, aviation, armor |
+| `People` | 0 | Portraits, models, human photography |
+| `Sci-Fi` | 0 | Spaceships, robots, aliens, futuristic tech |
+| `Space` | 0 | Galaxies, nebulas, solar systems, planets |
+| `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
+| `Vehicles` | 0 | Motorcycles, aircraft, trains, yachts |
 
 ---
 
