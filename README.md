@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 171
-* **Total Library Size**: 894.83 MB
-* **Average Resolution**: 4280 × 2498 px
+* **Total Curated Wallpapers**: 196
+* **Total Library Size**: 998.53 MB
+* **Average Resolution**: 4193 × 2451 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -20,7 +20,7 @@ Wallpapers are stored in high-resolution format directly under their respective 
 ```text
 Curated/
 ├── Animals/ (2 wallpapers)
-├── Anime/ (50 wallpapers)
+├── Anime/ (74 wallpapers)
 ├── Architecture/ (25 wallpapers)
 ├── City/ (1 wallpapers)
 ├── Comics/ (1 wallpapers)
@@ -29,7 +29,7 @@ Curated/
 ├── Landscape/ (23 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (4 wallpapers)
-├── Nature/ (1 wallpapers)
+├── Nature/ (2 wallpapers)
 ├── Ocean/ (6 wallpapers)
 ├── Other/ (9 wallpapers)
 └── Pixel Art/ (1 wallpapers)
@@ -41,7 +41,7 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **50** | Anime, manga, waifu, chibi, Ghibli |
+| `Anime` | **74** | Anime, manga, waifu, chibi, Ghibli |
 | `Gaming` | **28** | Video game art, characters, esports |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
 | `Landscape` | **23** | Mountains, lakes, rivers, sunsets, horizons |
@@ -50,8 +50,8 @@ Curated/
 | `Ocean` | **6** | Beaches, coastal waves, underwater coral |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
 | `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
+| `Nature` | **2** | Forests, plants, waterfalls, flowers, jungle |
 | `City` | **1** | Skylines, Tokyo streets, urban nightscapes |
-| `Nature` | **1** | Forests, plants, waterfalls, flowers, jungle |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
