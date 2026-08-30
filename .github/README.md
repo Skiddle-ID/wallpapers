@@ -1,13 +1,12 @@
 # 🖼️ Curated 2K+ Wallpaper Collection
 
-A hand-picked collection of **2K+ resolution** wallpapers organized across 25 clean categories, backed by a local automated scraping, deduplication, and classification agent.
+A hand-picked collection of **2K+ resolution** wallpapers organized across 25 clean categories for desktop, ultrawide, and mobile displays.
 
 ---
 
-## 📂 Repository Architecture
+## 📂 Categories & Organization
 
-* **`Curated/`** *(Published in Git)*: Hand-selected 2K+ wallpapers committed and shared in this repository.
-* **`Wallpapers/`** *(Local Library)*: Full local archive indexed by sequential database IDs and SQLite (`wallpapers.db`).
+Wallpapers are stored in high-resolution format directly under their respective category folders in **`Curated/`**:
 
 ```text
 Curated/
@@ -38,66 +37,19 @@ Curated/
 └── Other/
 ```
 
-**Quality Standard**: Every wallpaper meets or exceeds **2K QHD resolution** (≥ 3,686,400 pixels, e.g. 2560×1440, 3440×1440, 3840×2160) across 16:9, 21:9 ultrawide, and portrait orientations.
-
 ---
 
-## 🏷️ 25 Official Categories
+## 📐 Quality Standards
 
-| Category | Description / Examples |
-|---|---|
-| `Abstract` | Gradients, geometric shapes, 3D renders, fluid art |
-| `Animals` | Wildlife, cats, dogs, wolves, birds, marine life |
-| `Anime` | Anime, manga, waifu, chibi, Ghibli |
-| `Architecture` | Bridges, temples, cathedrals, modern structures |
-| `Cars` | Supercars, racing, sports cars, drift |
-| `City` | Skylines, Tokyo streets, urban nightscapes |
-| `Comics` | Marvel, DC, superheroes, Batman, Spider-Man |
-| `Cyberpunk` | Neon cities, synthwave, futuristic metropolis |
-| `Digital Art` | Concept art, CGI, ArtStation illustrations |
-| `Fantasy` | Castles, dragons, mythical creatures, magic |
-| `Gaming` | Video game art, characters, esports |
-| `Horror` | Gothic art, dark fantasy, skulls, monsters |
-| `Landscape` | Mountains, lakes, rivers, sunsets, horizons |
-| `Military` | Fighter jets, naval ships, aviation, armor |
-| `Minimalism` | Flat vector art, OLED/AMOLED, clean geometry |
-| `Music` | Instruments, concerts, guitars, synth |
-| `Nature` | Forests, plants, waterfalls, flowers, jungle |
-| `Ocean` | Beaches, coastal waves, underwater coral |
-| `People` | Portraits, models, human photography |
-| `Pixel Art` | 8-bit, 16-bit, retro arcade scenery, voxels |
-| `Sci-Fi` | Spaceships, robots, aliens, futuristic tech |
-| `Space` | Galaxies, nebulas, solar systems, planets |
-| `Sports` | Basketball, skateboarding, surfing, athletics |
-| `Vehicles` | Motorcycles, aircraft, trains, yachts |
-| `Other` | Miscellaneous high-resolution art |
-
----
-
-## 🚀 Quick Start (Local Agent)
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run automated collection across all 25 categories
-python agent.py auto --run-once
-
-# Check local library stats
-python agent.py stats
-
-# Publish a wallpaper to Git
-cp Wallpapers/Anime/104.png Curated/Anime/104.png
-git add Curated/
-git commit -m "✨ Add curated Anime wallpaper"
-git push origin main
-```
+* **Minimum Resolution**: ≥ 2K QHD (2560 × 1440 or 3,686,400+ total pixels).
+* **Aspect Ratios**: 16:9 (Standard Desktop), 21:9 / 32:9 (Ultrawide), and 9:16 (Portrait).
+* **Formats**: Lossless PNG, high-quality JPEG, and modern WEBP.
 
 ---
 
 ## ⚖️ Sources & Disclaimers
 
-Wallpapers are archived from public sources for personal theme customization and desktop archiving:
+Wallpapers are collected from public platforms for personal theme customization and desktop wallpaper use:
 
 <div align="center">
   <table><tr><td>

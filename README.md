@@ -1,13 +1,12 @@
 # 🖼️ Curated 2K+ Wallpaper Collection
 
-A hand-picked collection of **2K+ resolution** wallpapers organized across 25 clean categories, backed by a local automated scraping, deduplication, and classification agent.
+A hand-picked collection of **2K+ resolution** wallpapers organized across 25 clean categories for desktop, ultrawide, and mobile displays.
 
 ---
 
-## 📂 Repository Architecture
+## 📂 Categories & Organization
 
-* **`Curated/`** *(Published in Git)*: Hand-selected 2K+ wallpapers committed and shared in this repository.
-* **`Wallpapers/`** *(Local Library)*: Full local archive indexed by sequential database IDs and SQLite (`wallpapers.db`).
+Wallpapers are stored in high-resolution format directly under their respective category folders in **`Curated/`**:
 
 ```text
 Curated/
@@ -37,8 +36,6 @@ Curated/
 ├── Vehicles/
 └── Other/
 ```
-
-**Quality Standard**: Every wallpaper meets or exceeds **2K QHD resolution** (≥ 3,686,400 pixels, e.g. 2560×1440, 3440×1440, 3840×2160) across 16:9, 21:9 ultrawide, and portrait orientations.
 
 ---
 
@@ -74,91 +71,17 @@ Curated/
 
 ---
 
-## ⚙️ Local Agent & Pipeline
+## 📐 Quality Standards
 
-The local Python collection agent automates the entire ingestion and archival pipeline:
-
-```text
-Incoming Wallpaper / Automated Stream
-        ↓
-Image Validation (Decode & Integrity)
-        ↓
-Resolution Check (≥ 2K / 3,686,400 px)
- ├── Under 2K → Rejected
- └── Valid 2K+
-        ↓
-Duplicate Detection
- ├── Exact SHA-256 Match → Rejected
- └── Perceptual Hash (pHash) → Checked
-        ↓
-AI Provenance & Category Classification (CLIP Vision Fallback)
-        ↓
-Assign Sequential Database ID (e.g. 104.png)
-        ↓
-Save to Local Library (Wallpapers/<Category>/<ID>.<ext>)
-        ↓
-Persist Metadata in SQLite (wallpapers.db)
-```
-
----
-
-## 🚀 Agent CLI Usage (Local)
-
-### 1. Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-### 2. View Local Archive Statistics
-```bash
-python agent.py stats
-```
-
-### 3. Automated Wallpaper Collector
-```bash
-# Run one full multi-topic collection cycle
-python agent.py auto --run-once
-
-# Collect custom number of wallpapers per topic (e.g. 15 per topic)
-python agent.py auto --limit 15 --run-once
-
-# Run continuous background collector (every 1 hour)
-python agent.py auto --interval 3600
-```
-
-### 4. Manual Wallhaven Search & Download
-```bash
-# Download top monthly wallpapers for any query
-python agent.py wallhaven --query "cyberpunk" --limit 10 --sort toplist --top-range 1M
-
-# Collect 2K+ Anime wallpapers
-python agent.py wallhaven --query "anime girl" --limit 5 --category Anime
-
-# Download a specific Wallhaven wallpaper by ID or URL
-python agent.py wallhaven --id 1k7j9w
-```
-
-### 5. Search & Filter Local Library
-```bash
-python agent.py search --category Space --min-width 3840
-```
-
-### 6. Curate & Publish to Git
-Copy any wallpaper from the local `Wallpapers/` archive into `Curated/` and push:
-```bash
-# Example: Publish a wallpaper to the Anime category
-cp Wallpapers/Anime/104.png Curated/Anime/104.png
-git add Curated/
-git commit -m "✨ Add curated Anime wallpaper 104.png"
-git push origin main
-```
+* **Minimum Resolution**: ≥ 2K QHD (2560 × 1440 or 3,686,400+ total pixels).
+* **Aspect Ratios**: 16:9 (Standard Desktop), 21:9 / 32:9 (Ultrawide), and 9:16 (Portrait).
+* **Formats**: Lossless PNG, high-quality JPEG, and modern WEBP.
 
 ---
 
 ## ⚖️ Sources & Disclaimers
 
-Wallpapers are archived from public sources for personal theme customization and desktop archiving:
+Wallpapers are collected from public platforms for personal theme customization and desktop wallpaper use:
 
 <div align="center">
   <table><tr><td>
