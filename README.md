@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 115
-* **Total Library Size**: 520.63 MB
-* **Average Resolution**: 4225 × 2480 px
+* **Total Curated Wallpapers**: 116
+* **Total Library Size**: 521.85 MB
+* **Average Resolution**: 4222 × 2477 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -28,7 +28,8 @@ Curated/
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (4 wallpapers)
 ├── Nature/ (1 wallpapers)
-└── Ocean/ (6 wallpapers)
+├── Ocean/ (6 wallpapers)
+└── Pixel Art/ (1 wallpapers)
 ```
 
 ---
@@ -47,6 +48,7 @@ Curated/
 | `Nature` | **1** | Forests, plants, waterfalls, flowers, jungle |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
+| `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
 | `Abstract` | 0 | Gradients, geometric shapes, 3D renders, fluid art |
 | `Architecture` | 0 | Bridges, temples, cathedrals, modern structures |
 | `Cars` | 0 | Supercars, racing, sports cars, drift |
@@ -57,7 +59,6 @@ Curated/
 | `Military` | 0 | Fighter jets, naval ships, aviation, armor |
 | `Other` | 0 | Miscellaneous high-resolution art |
 | `People` | 0 | Portraits, models, human photography |
-| `Pixel Art` | 0 | 8-bit, 16-bit, retro arcade scenery, voxels |
 | `Sci-Fi` | 0 | Spaceships, robots, aliens, futuristic tech |
 | `Space` | 0 | Galaxies, nebulas, solar systems, planets |
 | `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
