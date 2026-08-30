@@ -25,8 +25,7 @@ models/
 *.safetensors
 
 # Wallpaper download, buffer & temporary caches
-incoming/*
-!incoming/.gitkeep
+incoming/
 downloads/
 cache/
 temp/
@@ -34,7 +33,18 @@ tmp/
 *.tmp
 *.log
 
-# SQLite runtime files
+# Database & SQLite files
+*.db
+*.sqlite
+*.sqlite3
+wallpapers.db
 *.db-journal
 *.db-wal
 *.db-shm
+
+# Python scripts, Agent code, configs & Tests
+*.py
+wallpaper_agent/
+tests/
+collector_config.json
+requirements.txt
