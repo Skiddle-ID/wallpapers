@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 34
-* **Total Library Size**: 122.19 MB
-* **Average Resolution**: 3857 × 2178 px
+* **Total Curated Wallpapers**: 52
+* **Total Library Size**: 187.80 MB
+* **Average Resolution**: 3980 × 2255 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -19,9 +19,10 @@ Wallpapers are stored in high-resolution format directly under their respective 
 
 ```text
 Curated/
-├── Animals/ (1 wallpapers)
-├── Anime/ (32 wallpapers)
-└── City/ (1 wallpapers)
+├── Animals/ (2 wallpapers)
+├── Anime/ (48 wallpapers)
+├── City/ (1 wallpapers)
+└── Nature/ (1 wallpapers)
 ```
 
 ---
@@ -30,9 +31,10 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **32** | Anime, manga, waifu, chibi, Ghibli |
-| `Animals` | **1** | Wildlife, cats, dogs, wolves, birds, marine life |
+| `Anime` | **48** | Anime, manga, waifu, chibi, Ghibli |
+| `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `City` | **1** | Skylines, Tokyo streets, urban nightscapes |
+| `Nature` | **1** | Forests, plants, waterfalls, flowers, jungle |
 | `Abstract` | 0 | Gradients, geometric shapes, 3D renders, fluid art |
 | `Architecture` | 0 | Bridges, temples, cathedrals, modern structures |
 | `Cars` | 0 | Supercars, racing, sports cars, drift |
@@ -46,7 +48,6 @@ Curated/
 | `Military` | 0 | Fighter jets, naval ships, aviation, armor |
 | `Minimalism` | 0 | Flat vector art, OLED/AMOLED, clean geometry |
 | `Music` | 0 | Instruments, concerts, guitars, synth |
-| `Nature` | 0 | Forests, plants, waterfalls, flowers, jungle |
 | `Ocean` | 0 | Beaches, coastal waves, underwater coral |
 | `Other` | 0 | Miscellaneous high-resolution art |
 | `People` | 0 | Portraits, models, human photography |
