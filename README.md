@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 172
-* **Total Library Size**: 899.69 MB
-* **Average Resolution**: 4272 × 2493 px
+* **Total Curated Wallpapers**: 171
+* **Total Library Size**: 894.83 MB
+* **Average Resolution**: 4280 × 2498 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -31,7 +31,7 @@ Curated/
 ├── Music/ (4 wallpapers)
 ├── Nature/ (1 wallpapers)
 ├── Ocean/ (6 wallpapers)
-├── Other/ (10 wallpapers)
+├── Other/ (9 wallpapers)
 └── Pixel Art/ (1 wallpapers)
 ```
 
@@ -46,7 +46,7 @@ Curated/
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
 | `Landscape` | **23** | Mountains, lakes, rivers, sunsets, horizons |
 | `Fantasy` | **19** | Castles, dragons, mythical creatures, magic |
-| `Other` | **10** | Miscellaneous high-resolution art |
+| `Other` | **9** | Miscellaneous high-resolution art |
 | `Ocean` | **6** | Beaches, coastal waves, underwater coral |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
 | `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
