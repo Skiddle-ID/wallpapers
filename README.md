@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 143
-* **Total Library Size**: 682.11 MB
-* **Average Resolution**: 4284 × 2536 px
+* **Total Curated Wallpapers**: 162
+* **Total Library Size**: 831.58 MB
+* **Average Resolution**: 4276 × 2501 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -24,6 +24,7 @@ Curated/
 ├── Architecture/ (25 wallpapers)
 ├── City/ (1 wallpapers)
 ├── Comics/ (1 wallpapers)
+├── Fantasy/ (19 wallpapers)
 ├── Gaming/ (28 wallpapers)
 ├── Landscape/ (23 wallpapers)
 ├── Minimalism/ (1 wallpapers)
@@ -43,6 +44,7 @@ Curated/
 | `Gaming` | **28** | Video game art, characters, esports |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
 | `Landscape` | **23** | Mountains, lakes, rivers, sunsets, horizons |
+| `Fantasy` | **19** | Castles, dragons, mythical creatures, magic |
 | `Ocean` | **6** | Beaches, coastal waves, underwater coral |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
 | `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
@@ -55,7 +57,6 @@ Curated/
 | `Cars` | 0 | Supercars, racing, sports cars, drift |
 | `Cyberpunk` | 0 | Neon cities, synthwave, futuristic metropolis |
 | `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
-| `Fantasy` | 0 | Castles, dragons, mythical creatures, magic |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
 | `Military` | 0 | Fighter jets, naval ships, aviation, armor |
 | `Other` | 0 | Miscellaneous high-resolution art |
