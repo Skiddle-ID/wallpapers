@@ -1,13 +1,13 @@
 # 🖼️ Curated 2K+ Wallpaper Collection
 
-A hand-picked and curated collection of **2K+ resolution** wallpapers organized by clean categories, backed by a local automated archiving and classification agent.
+A hand-picked collection of **2K+ resolution** wallpapers organized across 25 clean categories, backed by a local automated scraping, deduplication, and classification agent.
 
 ---
 
-## 📂 Architecture
+## 📂 Repository Architecture
 
-* **`Curated/`** *(Tracked in Git)*: High-quality, manually curated wallpapers published to the repository.
-* **`Wallpapers/`** *(Local Library)*: Full local archive indexed with SQLite (`wallpapers.db`) and sequential database IDs.
+* **`Curated/`** *(Published in Git)*: Hand-selected 2K+ wallpapers committed and shared in this repository.
+* **`Wallpapers/`** *(Local Library)*: Full local archive indexed by sequential database IDs and SQLite (`wallpapers.db`).
 
 ```text
 Curated/
@@ -38,9 +38,43 @@ Curated/
 └── Other/
 ```
 
+**Quality Standard**: Every wallpaper meets or exceeds **2K QHD resolution** (≥ 3,686,400 pixels, e.g. 2560×1440, 3440×1440, 3840×2160) across 16:9, 21:9 ultrawide, and portrait orientations.
+
 ---
 
-## 🚀 Quick Start
+## 🏷️ 25 Official Categories
+
+| Category | Description / Examples |
+|---|---|
+| `Abstract` | Gradients, geometric shapes, 3D renders, fluid art |
+| `Animals` | Wildlife, cats, dogs, wolves, birds, marine life |
+| `Anime` | Anime, manga, waifu, chibi, Ghibli |
+| `Architecture` | Bridges, temples, cathedrals, modern structures |
+| `Cars` | Supercars, racing, sports cars, drift |
+| `City` | Skylines, Tokyo streets, urban nightscapes |
+| `Comics` | Marvel, DC, superheroes, Batman, Spider-Man |
+| `Cyberpunk` | Neon cities, synthwave, futuristic metropolis |
+| `Digital Art` | Concept art, CGI, ArtStation illustrations |
+| `Fantasy` | Castles, dragons, mythical creatures, magic |
+| `Gaming` | Video game art, characters, esports |
+| `Horror` | Gothic art, dark fantasy, skulls, monsters |
+| `Landscape` | Mountains, lakes, rivers, sunsets, horizons |
+| `Military` | Fighter jets, naval ships, aviation, armor |
+| `Minimalism` | Flat vector art, OLED/AMOLED, clean geometry |
+| `Music` | Instruments, concerts, guitars, synth |
+| `Nature` | Forests, plants, waterfalls, flowers, jungle |
+| `Ocean` | Beaches, coastal waves, underwater coral |
+| `People` | Portraits, models, human photography |
+| `Pixel Art` | 8-bit, 16-bit, retro arcade scenery, voxels |
+| `Sci-Fi` | Spaceships, robots, aliens, futuristic tech |
+| `Space` | Galaxies, nebulas, solar systems, planets |
+| `Sports` | Basketball, skateboarding, surfing, athletics |
+| `Vehicles` | Motorcycles, aircraft, trains, yachts |
+| `Other` | Miscellaneous high-resolution art |
+
+---
+
+## 🚀 Quick Start (Local Agent)
 
 ```bash
 # Install dependencies
@@ -49,18 +83,21 @@ pip install -r requirements.txt
 # Run automated collection across all 25 categories
 python agent.py auto --run-once
 
-# Start continuous collection daemon (every 1 hour)
-python agent.py auto --interval 3600
-
-# Check library stats
+# Check local library stats
 python agent.py stats
+
+# Publish a wallpaper to Git
+cp Wallpapers/Anime/104.png Curated/Anime/104.png
+git add Curated/
+git commit -m "✨ Add curated Anime wallpaper"
+git push origin main
 ```
 
 ---
 
 ## ⚖️ Sources & Disclaimers
 
-These images were collected for personal use from various public sources, including:
+Wallpapers are archived from public sources for personal theme customization and desktop archiving:
 
 <div align="center">
   <table><tr><td>
@@ -77,4 +114,4 @@ These images were collected for personal use from various public sources, includ
   </td></tr></table>
 </div>
 
-If you are the owner of any image and wish to have it removed, please open an issue.
+*If you are the copyright owner of any image in this repository and wish to request removal, please open a GitHub issue.*

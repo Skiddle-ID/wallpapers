@@ -1,13 +1,13 @@
 # 🖼️ Curated 2K+ Wallpaper Collection
 
-A hand-picked and curated collection of **2K+ resolution** wallpapers organized by clean categories, backed by a local automated archiving and classification agent.
+A hand-picked collection of **2K+ resolution** wallpapers organized across 25 clean categories, backed by a local automated scraping, deduplication, and classification agent.
 
 ---
 
-## 📂 Architecture
+## 📂 Repository Architecture
 
-* **`Curated/`** *(Tracked in Git)*: High-quality, manually curated wallpapers published to the repository.
-* **`Wallpapers/`** *(Local Library)*: Full local archive indexed with SQLite (`wallpapers.db`) and sequential database IDs.
+* **`Curated/`** *(Published in Git)*: Hand-selected 2K+ wallpapers committed and shared in this repository.
+* **`Wallpapers/`** *(Local Library)*: Full local archive indexed by sequential database IDs and SQLite (`wallpapers.db`).
 
 ```text
 Curated/
@@ -37,20 +37,8 @@ Curated/
 ├── Vehicles/
 └── Other/
 ```
-├── Minimalism/
-├── Music/
-├── Nature/
-├── Ocean/
-├── People/
-├── Pixel Art/
-├── Sci-Fi/
-├── Space/
-├── Sports/
-├── Vehicles/
-└── Other/
-```
 
-**File Naming**: Sequential permanent ID (e.g. `Wallpapers/Anime/104.png`, `Wallpapers/Cyberpunk/315.png`).
+**Quality Standard**: Every wallpaper meets or exceeds **2K QHD resolution** (≥ 3,686,400 pixels, e.g. 2560×1440, 3440×1440, 3840×2160) across 16:9, 21:9 ultrawide, and portrait orientations.
 
 ---
 
@@ -58,7 +46,7 @@ Curated/
 
 | Category | Description / Examples |
 |---|---|
-| `Abstract` | Gradients, geometric, 3D shapes, fluid art |
+| `Abstract` | Gradients, geometric shapes, 3D renders, fluid art |
 | `Animals` | Wildlife, cats, dogs, wolves, birds, marine life |
 | `Anime` | Anime, manga, waifu, chibi, Ghibli |
 | `Architecture` | Bridges, temples, cathedrals, modern structures |
@@ -86,9 +74,9 @@ Curated/
 
 ---
 
-## ⚙️ Pipeline & Features
+## ⚙️ Local Agent & Pipeline
 
-Every ingested wallpaper undergoes automated processing:
+The local Python collection agent automates the entire ingestion and archival pipeline:
 
 ```text
 Incoming Wallpaper / Automated Stream
@@ -103,20 +91,18 @@ Duplicate Detection
  ├── Exact SHA-256 Match → Rejected
  └── Perceptual Hash (pHash) → Checked
         ↓
-AI Classification & Provenance Tracking (AI / NON-AI / UNKNOWN)
+AI Provenance & Category Classification (CLIP Vision Fallback)
         ↓
-Category Assignment (25 Categories + CLIP Vision Fallback)
+Assign Sequential Database ID (e.g. 104.png)
         ↓
-Assign Sequential Permanent Database ID
-        ↓
-Save as Wallpapers/<Category>/<ID>.<ext>
+Save to Local Library (Wallpapers/<Category>/<ID>.<ext>)
         ↓
 Persist Metadata in SQLite (wallpapers.db)
 ```
 
 ---
 
-## 🚀 CLI Usage
+## 🚀 Agent CLI Usage (Local)
 
 ### 1. Installation
 
@@ -124,22 +110,20 @@ Persist Metadata in SQLite (wallpapers.db)
 pip install -r requirements.txt
 ```
 
-### 2. View Statistics
+### 2. View Local Archive Statistics
 ```bash
 python agent.py stats
 ```
 
-### 3. Automated Collection Daemon
-Run the automated collector across all 25 categories configured in `collector_config.json`:
-
+### 3. Automated Wallpaper Collector
 ```bash
-# Run one full multi-topic collection cycle (10 wallpapers per topic)
+# Run one full multi-topic collection cycle
 python agent.py auto --run-once
 
 # Collect custom number of wallpapers per topic (e.g. 15 per topic)
 python agent.py auto --limit 15 --run-once
 
-# Run continuous collection daemon (every 1 hour)
+# Run continuous background collector (every 1 hour)
 python agent.py auto --interval 3600
 ```
 
@@ -155,59 +139,40 @@ python agent.py wallhaven --query "anime girl" --limit 5 --category Anime
 python agent.py wallhaven --id 1k7j9w
 ```
 
-### 5. Process Incoming Directory
-Drop local images into `incoming/` and run:
-```bash
-python agent.py process
-```
-
-### 6. Search Collection
+### 5. Search & Filter Local Library
 ```bash
 python agent.py search --category Space --min-width 3840
 ```
 
-### 7. Reclassify & Reorganize Existing Library
-Re-evaluate existing wallpapers using updated metadata & CLIP vision rules:
-
+### 6. Curate & Publish to Git
+Copy any wallpaper from the local `Wallpapers/` archive into `Curated/` and push:
 ```bash
-# Preview reclassification changes
-python agent.py reclassify --dry-run
-
-# Apply reclassification and move files to updated folders
-python agent.py reclassify
-```
-
-### 8. Verify Filesystem Integrity
-```bash
-python agent.py verify
+# Example: Publish a wallpaper to the Anime category
+cp Wallpapers/Anime/104.png Curated/Anime/104.png
+git add Curated/
+git commit -m "✨ Add curated Anime wallpaper 104.png"
+git push origin main
 ```
 
 ---
 
-## 🗄️ Database Schema (`wallpapers.db`)
+## ⚖️ Sources & Disclaimers
 
-The SQLite database acts as the single source of truth:
+Wallpapers are archived from public sources for personal theme customization and desktop archiving:
 
-| Field | Type | Description |
-|---|---|---|
-| `id` | `INTEGER PRIMARY KEY` | Sequential permanent ID |
-| `filename` | `TEXT` | ID filename (e.g. `104.png`) |
-| `type` | `TEXT` | `AI`, `NON-AI`, or `UNKNOWN` metadata |
-| `category` | `TEXT` | One of the 25 official categories |
-| `width` | `INTEGER` | Pixel width |
-| `height` | `INTEGER` | Pixel height |
-| `format` | `TEXT` | Image format (JPEG, PNG, WEBP) |
-| `filesize` | `INTEGER` | Size in bytes |
-| `sha256` | `TEXT UNIQUE` | Cryptographic hash |
-| `perceptual_hash` | `TEXT` | pHash for visual similarity |
-| `source` | `TEXT` | Source platform / uploader |
-| `source_url` | `TEXT` | Original source webpage URL |
-| `aspect_ratio` | `TEXT` | Common ratio (e.g. `16:9`, `21:9`) |
-| `orientation` | `TEXT` | `Landscape`, `Portrait`, `Ultrawide`, `Square` |
-| `created_at` | `TIMESTAMP` | Record timestamp |
+<div align="center">
+  <table><tr><td>
 
----
+[![Wallhaven](https://img.shields.io/badge/Wallhaven-6DFF89?style=for-the-badge&logo=&logoColor=white)](https://wallhaven.cc/)
+[![Wallpapers Clan](https://img.shields.io/badge/Wallpapers_Clan-F39C12?style=for-the-badge&logo=&logoColor=white)](https://wallpapers-clan.com/)
+[![Alpha Coders](https://img.shields.io/badge/Alpha_Coders-00A8E8?style=for-the-badge&logo=&logoColor=white)](https://alphacoders.com/)
+[![Pixiv](https://img.shields.io/badge/Pixiv-0096FA?style=for-the-badge&logo=pixiv&logoColor=white)](https://www.pixiv.net/en/)
+[![Unsplash](https://img.shields.io/badge/Unsplash-000000?style=for-the-badge&logo=unsplash&logoColor=white)](https://unsplash.com/)
+[![ArtStation](https://img.shields.io/badge/ArtStation-13AFF0?style=for-the-badge&logo=artstation&logoColor=white)](https://artstation.com/)
+[![DeviantArt](https://img.shields.io/badge/DeviantArt-05CC47?style=for-the-badge&logo=deviantart&logoColor=white)](https://deviantart.com/)
+[![UHD Paper](https://img.shields.io/badge/UHD_Paper-4A148C?style=for-the-badge&logo=&logoColor=white)](https://www.uhdpaper.com/)
 
-## ⚖️ Disclaimer
+  </td></tr></table>
+</div>
 
-All wallpapers are collected from public sources for personal archiving and theme customization. If you own an image and request removal, please open an issue.
+*If you are the copyright owner of any image in this repository and wish to request removal, please open a GitHub issue.*
