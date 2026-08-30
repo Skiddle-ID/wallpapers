@@ -1,57 +1,42 @@
-# 🖼️ Wallpaper Collection & Agent
+# 🖼️ Curated 2K+ Wallpaper Collection
 
-An automated, deduplicated, and classified wallpaper library adhering to strict **2K+ resolution** requirements, permanent database IDs, and structured filesystem organization.
+A hand-picked and curated collection of **2K+ resolution** wallpapers organized by clean categories, backed by a local automated archiving and classification agent.
 
 ---
 
-## 📂 Storage Architecture
+## 📂 Architecture
 
-Files are organized strictly by **Classification Type** and **Primary Category** (created on demand), named after their permanent **Database ID**:
+* **`Curated/`** *(Tracked in Git)*: High-quality, manually curated wallpapers published to the repository.
+* **`Wallpapers/`** *(Local Library)*: Full local archive indexed with SQLite (`wallpapers.db`) and sequential database IDs.
 
 ```text
-Wallpapers/
-├── AI/
-│   ├── Abstract/
-│   ├── Animals/
-│   ├── Anime/
-│   ├── Architecture/
-│   ├── Cars/
-│   ├── City/
-│   ├── Comics/
-│   ├── Cyberpunk/
-│   ├── Digital Art/
-│   ├── Fantasy/
-│   ├── Gaming/
-│   ├── Horror/
-│   ├── Landscape/
-│   ├── Military/
-│   ├── Minimalism/
-│   ├── Music/
-│   ├── Nature/
-│   ├── Ocean/
-│   ├── People/
-│   ├── Pixel Art/
-│   ├── Sci-Fi/
-│   ├── Space/
-│   ├── Sports/
-│   ├── Vehicles/
-│   └── Other/
-│
-├── NON-AI/
-│   └── (25 categories)
-│
-└── UNKNOWN/
-    └── (25 categories)
+Curated/
+├── Abstract/
+├── Animals/
+├── Anime/
+├── Architecture/
+├── Cars/
+├── City/
+├── Comics/
+├── Cyberpunk/
+├── Digital Art/
+├── Fantasy/
+├── Gaming/
+├── Horror/
+├── Landscape/
+├── Military/
+├── Minimalism/
+├── Music/
+├── Nature/
+├── Ocean/
+├── People/
+├── Pixel Art/
+├── Sci-Fi/
+├── Space/
+├── Sports/
+├── Vehicles/
+└── Other/
 ```
-
----
-
-## 📊 Collection Summary
-
-* **Total 2K+ Wallpapers**: 538
-* **Total Library Size**: 2.28 GB
-* **Average Resolution**: 4130 × 2392 px
-* **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
 

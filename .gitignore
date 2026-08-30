@@ -48,3 +48,6 @@ wallpaper_agent/
 tests/
 collector_config.json
 requirements.txt
+
+# Local Bulk Wallpaper Storage (Only manually curated wallpapers in Curated/ are published)
+Wallpapers/

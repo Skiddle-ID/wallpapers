@@ -1,64 +1,56 @@
-# 🖼️ Wallpaper Collection & Agent
+# 🖼️ Curated 2K+ Wallpaper Collection
 
-An automated, deduplicated, and classified wallpaper library adhering to strict **2K+ resolution** requirements, permanent database IDs, and structured filesystem organization.
-
----
-
-## 📊 Collection Statistics
-
-* **Total 2K+ Wallpapers**: 538
-* **Total Library Size**: 2.28 GB
-* **Average Resolution**: 4130 × 2392 px
-* **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
-
-### Classification Breakdown
-* 🟢 **NON-AI**: 113 (21.0%)
-* ⚪ **UNKNOWN**: 417 (77.5%)
-* 🟣 **AI**: 8 (1.5%)
+A hand-picked and curated collection of **2K+ resolution** wallpapers organized by clean categories, backed by a local automated archiving and classification agent.
 
 ---
 
-## 📂 Storage Architecture
+## 📂 Architecture
 
-Files are organized strictly by **Classification Type** and **Primary Category** (created on demand), named after their permanent **Database ID**:
+* **`Curated/`** *(Tracked in Git)*: High-quality, manually curated wallpapers published to the repository.
+* **`Wallpapers/`** *(Local Library)*: Full local archive indexed with SQLite (`wallpapers.db`) and sequential database IDs.
 
 ```text
-Wallpapers/
-├── AI/
-│   ├── Abstract/
-│   ├── Animals/
-│   ├── Anime/
-│   ├── Architecture/
-│   ├── Cars/
-│   ├── City/
-│   ├── Comics/
-│   ├── Cyberpunk/
-│   ├── Digital Art/
-│   ├── Fantasy/
-│   ├── Gaming/
-│   ├── Horror/
-│   ├── Landscape/
-│   ├── Military/
-│   ├── Minimalism/
-│   ├── Music/
-│   ├── Nature/
-│   ├── Ocean/
-│   ├── People/
-│   ├── Pixel Art/
-│   ├── Sci-Fi/
-│   ├── Space/
-│   ├── Sports/
-│   ├── Vehicles/
-│   └── Other/
-│
-├── NON-AI/
-│   └── (25 categories)
-│
-└── UNKNOWN/
-    └── (25 categories)
+Curated/
+├── Abstract/
+├── Animals/
+├── Anime/
+├── Architecture/
+├── Cars/
+├── City/
+├── Comics/
+├── Cyberpunk/
+├── Digital Art/
+├── Fantasy/
+├── Gaming/
+├── Horror/
+├── Landscape/
+├── Military/
+├── Minimalism/
+├── Music/
+├── Nature/
+├── Ocean/
+├── People/
+├── Pixel Art/
+├── Sci-Fi/
+├── Space/
+├── Sports/
+├── Vehicles/
+└── Other/
+```
+├── Minimalism/
+├── Music/
+├── Nature/
+├── Ocean/
+├── People/
+├── Pixel Art/
+├── Sci-Fi/
+├── Space/
+├── Sports/
+├── Vehicles/
+└── Other/
 ```
 
-**File Naming**: Sequential permanent ID (e.g. `Wallpapers/NON-AI/Anime/104.png`).
+**File Naming**: Sequential permanent ID (e.g. `Wallpapers/Anime/104.png`, `Wallpapers/Cyberpunk/315.png`).
 
 ---
 
@@ -111,13 +103,13 @@ Duplicate Detection
  ├── Exact SHA-256 Match → Rejected
  └── Perceptual Hash (pHash) → Checked
         ↓
-AI Classification (AI / NON-AI / UNKNOWN)
+AI Classification & Provenance Tracking (AI / NON-AI / UNKNOWN)
         ↓
-Category Assignment (25 Official Categories)
+Category Assignment (25 Categories + CLIP Vision Fallback)
         ↓
 Assign Sequential Permanent Database ID
         ↓
-Save as Wallpapers/<Type>/<Category>/<ID>.<ext>
+Save as Wallpapers/<Category>/<ID>.<ext>
         ↓
 Persist Metadata in SQLite (wallpapers.db)
 ```
@@ -157,7 +149,7 @@ python agent.py auto --interval 3600
 python agent.py wallhaven --query "cyberpunk" --limit 10 --sort toplist --top-range 1M
 
 # Collect 2K+ Anime wallpapers
-python agent.py wallhaven --query "anime girl" --limit 5 --category Anime --type NON-AI
+python agent.py wallhaven --query "anime girl" --limit 5 --category Anime
 
 # Download a specific Wallhaven wallpaper by ID or URL
 python agent.py wallhaven --id 1k7j9w
@@ -175,7 +167,7 @@ python agent.py search --category Space --min-width 3840
 ```
 
 ### 7. Reclassify & Reorganize Existing Library
-Re-evaluate all existing wallpapers using the latest AI and category rules:
+Re-evaluate existing wallpapers using updated metadata & CLIP vision rules:
 
 ```bash
 # Preview reclassification changes
@@ -200,7 +192,7 @@ The SQLite database acts as the single source of truth:
 |---|---|---|
 | `id` | `INTEGER PRIMARY KEY` | Sequential permanent ID |
 | `filename` | `TEXT` | ID filename (e.g. `104.png`) |
-| `type` | `TEXT` | `AI`, `NON-AI`, or `UNKNOWN` |
+| `type` | `TEXT` | `AI`, `NON-AI`, or `UNKNOWN` metadata |
 | `category` | `TEXT` | One of the 25 official categories |
 | `width` | `INTEGER` | Pixel width |
 | `height` | `INTEGER` | Pixel height |
