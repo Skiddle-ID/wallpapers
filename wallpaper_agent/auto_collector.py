@@ -33,18 +33,18 @@ class AutoCollector:
         """Load collection configuration from JSON file."""
         if not self.config_path.exists():
             return {
-                "settings": {"delay_seconds": 1.5, "default_limit_per_target": 5},
+                "settings": {"delay_seconds": 1.0, "default_limit_per_target": 10},
                 "targets": [
-                    {"name": "Top Wallpapers", "query": None, "sorting": "toplist", "limit": 5}
+                    {"name": "Top Wallpapers", "query": None, "sorting": "toplist", "limit": 10}
                 ],
             }
         with open(self.config_path, "r", encoding="utf-8") as f:
             return json.load(f)
 
-    def run_cycle(self) -> Dict[str, Any]:
+    def run_cycle(self, limit_override: Optional[int] = None) -> Dict[str, Any]:
         """Execute one complete collection cycle across all configured targets."""
         settings = self.config.get("settings", {})
-        delay = settings.get("delay_seconds", 1.5)
+        delay = settings.get("delay_seconds", 1.0)
         targets = self.config.get("targets", [])
 
         downloader = WallhavenDownloader(
@@ -68,7 +68,7 @@ class AutoCollector:
         for idx, target in enumerate(targets, 1):
             name = target.get("name", f"Target #{idx}")
             query = target.get("query")
-            limit = target.get("limit", settings.get("default_limit_per_target", 5))
+            limit = limit_override or target.get("limit", settings.get("default_limit_per_target", 10))
             sorting = target.get("sorting", "toplist")
             top_range = target.get("top_range", "1M")
             categories = target.get("categories", "111")
@@ -88,6 +88,7 @@ class AutoCollector:
                     sorting=sorting,
                     top_range=top_range,
                     ratios=ratios,
+                    max_pages=10,
                     category_hint=cat_hint,
                     type_hint=type_hint,
                     db_path=self.db_path,
@@ -118,7 +119,7 @@ class AutoCollector:
         print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Cycle finished: {cycle_summary['total_ingested']} new wallpapers ingested.\n")
         return cycle_summary
 
-    def run_continuous(self, interval_seconds: int = 3600) -> None:
+    def run_continuous(self, interval_seconds: int = 3600, limit_override: Optional[int] = None) -> None:
         """Run continuous automated collection loop with sleep interval."""
         print(f"Starting Wallpaper Collection Daemon (interval: {interval_seconds}s / {interval_seconds/60:.1f}m)...")
         print("Press Ctrl+C to stop.\n")
@@ -127,7 +128,7 @@ class AutoCollector:
         try:
             while True:
                 print(f"--- Cycle #{cycle_num} ---")
-                self.run_cycle()
+                self.run_cycle(limit_override=limit_override)
                 cycle_num += 1
 
                 next_run = time.time() + interval_seconds

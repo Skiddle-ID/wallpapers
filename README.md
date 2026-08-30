@@ -6,49 +6,86 @@ An automated, deduplicated, and classified wallpaper library adhering to strict 
 
 ## 📊 Collection Statistics
 
-* **Total 2K+ Wallpapers**: 317
-* **Total Library Size**: 1.13 GB
-* **Average Resolution**: 3871 × 2217 px
+* **Total 2K+ Wallpapers**: 339
+* **Total Library Size**: 1.26 GB
+* **Average Resolution**: 3926 × 2248 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
-
-### Classification Breakdown
-* 🟢 **NON-AI**: 219 (69.1%)
-* ⚪ **UNKNOWN**: 95 (30.0%)
-* 🟣 **AI**: 3 (0.9%)
 
 ---
 
 ## 📂 Storage Architecture
 
-Files are organized strictly by **Classification Type** and **Primary Category**, named after their permanent **Database ID**:
+Files are organized strictly by **Classification Type** and **Primary Category** (created on demand), named after their permanent **Database ID**:
 
 ```text
 Wallpapers/
 ├── AI/
+│   ├── Abstract/
+│   ├── Animals/
 │   ├── Anime/
 │   ├── Architecture/
-│   ├── Abstract/
 │   ├── Cars/
 │   ├── City/
+│   ├── Comics/
 │   ├── Cyberpunk/
+│   ├── Digital Art/
 │   ├── Fantasy/
 │   ├── Gaming/
+│   ├── Horror/
 │   ├── Landscape/
+│   ├── Military/
+│   ├── Minimalism/
+│   ├── Music/
 │   ├── Nature/
 │   ├── Ocean/
 │   ├── People/
+│   ├── Pixel Art/
 │   ├── Sci-Fi/
 │   ├── Space/
+│   ├── Sports/
+│   ├── Vehicles/
 │   └── Other/
 │
 ├── NON-AI/
-│   └── (15 categories)
+│   └── (25 categories)
 │
 └── UNKNOWN/
-    └── (15 categories)
+    └── (25 categories)
 ```
 
 **File Naming**: Sequential permanent ID (e.g. `Wallpapers/NON-AI/Anime/104.png`).
+
+---
+
+## 🏷️ 25 Official Categories
+
+| Category | Description / Examples |
+|---|---|
+| `Abstract` | Gradients, geometric, 3D shapes, fluid art |
+| `Animals` | Wildlife, cats, dogs, wolves, birds, marine life |
+| `Anime` | Anime, manga, waifu, chibi, Ghibli |
+| `Architecture` | Bridges, temples, cathedrals, modern structures |
+| `Cars` | Supercars, racing, sports cars, drift |
+| `City` | Skylines, Tokyo streets, urban nightscapes |
+| `Comics` | Marvel, DC, superheroes, Batman, Spider-Man |
+| `Cyberpunk` | Neon cities, synthwave, futuristic metropolis |
+| `Digital Art` | Concept art, CGI, ArtStation illustrations |
+| `Fantasy` | Castles, dragons, mythical creatures, magic |
+| `Gaming` | Video game art, characters, esports |
+| `Horror` | Gothic art, dark fantasy, skulls, monsters |
+| `Landscape` | Mountains, lakes, rivers, sunsets, horizons |
+| `Military` | Fighter jets, naval ships, aviation, armor |
+| `Minimalism` | Flat vector art, OLED/AMOLED, clean geometry |
+| `Music` | Instruments, concerts, guitars, synth |
+| `Nature` | Forests, plants, waterfalls, flowers, jungle |
+| `Ocean` | Beaches, coastal waves, underwater coral |
+| `People` | Portraits, models, human photography |
+| `Pixel Art` | 8-bit, 16-bit, retro arcade scenery, voxels |
+| `Sci-Fi` | Spaceships, robots, aliens, futuristic tech |
+| `Space` | Galaxies, nebulas, solar systems, planets |
+| `Sports` | Basketball, skateboarding, surfing, athletics |
+| `Vehicles` | Motorcycles, aircraft, trains, yachts |
+| `Other` | Miscellaneous high-resolution art |
 
 ---
 
@@ -71,7 +108,7 @@ Duplicate Detection
         ↓
 AI Classification (AI / NON-AI / UNKNOWN)
         ↓
-Category Assignment (15 Standard Categories)
+Category Assignment (25 Official Categories)
         ↓
 Assign Sequential Permanent Database ID
         ↓
@@ -95,23 +132,23 @@ pip install -r requirements.txt
 python agent.py stats
 ```
 
-### 3. Automated Daemon & Multi-Topic Collection
-Run the automated collector across all topics configured in `collector_config.json`:
+### 3. Automated Collection Daemon
+Run the automated collector across all 25 categories configured in `collector_config.json`:
 
 ```bash
-# Run one full multi-topic collection cycle
+# Run one full multi-topic collection cycle (10 wallpapers per topic)
 python agent.py auto --run-once
+
+# Collect custom number of wallpapers per topic (e.g. 15 per topic)
+python agent.py auto --limit 15 --run-once
 
 # Run continuous collection daemon (every 1 hour)
 python agent.py auto --interval 3600
-
-# Run with custom config
-python agent.py auto --config my_topics.json
 ```
 
 ### 4. Manual Wallhaven Search & Download
 ```bash
-# Download top 10 monthly wallpapers matching a query
+# Download top monthly wallpapers for any query
 python agent.py wallhaven --query "cyberpunk" --limit 10 --sort toplist --top-range 1M
 
 # Collect 2K+ Anime wallpapers
@@ -127,47 +164,14 @@ Drop local images into `incoming/` and run:
 python agent.py process
 ```
 
-### 6. Ingest Single File or URL
+### 6. Search Collection
 ```bash
-# Add local image
-python agent.py add path/to/wallpaper.png
-
-# Download and ingest from URL
-python agent.py add "https://example.com/wallpaper.jpg" --type NON-AI --category Anime
+python agent.py search --category Space --min-width 3840
 ```
 
-### 7. Search Collection
-```bash
-python agent.py search --category Anime --min-width 3840
-```
-
-### 8. Verify Filesystem Integrity
+### 7. Verify Filesystem Integrity
 ```bash
 python agent.py verify
-```
-
----
-
-## ⚙️ Configuration (`collector_config.json`)
-
-Configure targets, queries, limits, and categories for automated ingestion:
-
-```json
-{
-  "settings": {
-    "delay_seconds": 1.5,
-    "purity": "100",
-    "min_resolution": "2560x1440",
-    "default_limit_per_target": 5
-  },
-  "targets": [
-    { "name": "Top Monthly", "query": null, "sorting": "toplist", "top_range": "1M", "limit": 5 },
-    { "name": "Cyberpunk", "query": "cyberpunk", "sorting": "hot", "category_hint": "Cyberpunk", "limit": 5 },
-    { "name": "Anime", "query": "anime", "sorting": "toplist", "category_hint": "Anime", "limit": 5 },
-    { "name": "Landscape", "query": "landscape", "sorting": "toplist", "category_hint": "Landscape", "limit": 5 },
-    { "name": "Space", "query": "space", "sorting": "toplist", "category_hint": "Space", "limit": 5 }
-  ]
-}
 ```
 
 ---
@@ -181,7 +185,7 @@ The SQLite database acts as the single source of truth:
 | `id` | `INTEGER PRIMARY KEY` | Sequential permanent ID |
 | `filename` | `TEXT` | ID filename (e.g. `104.png`) |
 | `type` | `TEXT` | `AI`, `NON-AI`, or `UNKNOWN` |
-| `category` | `TEXT` | One of the 15 standard categories |
+| `category` | `TEXT` | One of the 25 official categories |
 | `width` | `INTEGER` | Pixel width |
 | `height` | `INTEGER` | Pixel height |
 | `format` | `TEXT` | Image format (JPEG, PNG, WEBP) |

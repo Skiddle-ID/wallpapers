@@ -171,7 +171,7 @@ def cmd_auto(args: argparse.Namespace) -> None:
     )
 
     if args.run_once:
-        summary = collector.run_cycle()
+        summary = collector.run_cycle(limit_override=args.limit)
         print("\n" + "=" * 50)
         print(" AUTOMATED COLLECTION SUMMARY")
         print("=" * 50)
@@ -183,7 +183,7 @@ def cmd_auto(args: argparse.Namespace) -> None:
         print(f"Failed:            {summary['total_failed']}")
         print("=" * 50 + "\n")
     else:
-        collector.run_continuous(interval_seconds=args.interval)
+        collector.run_continuous(interval_seconds=args.interval, limit_override=args.limit)
 
 
 def cmd_migrate(args: argparse.Namespace) -> None:
@@ -309,6 +309,7 @@ def build_parser() -> argparse.ArgumentParser:
     # auto
     p_auto = subparsers.add_parser("auto", help="Run automated wallpaper collection daemon or batch cycle")
     p_auto.add_argument("--run-once", action="store_true", help="Run one single collection cycle and exit")
+    p_auto.add_argument("--limit", "-n", type=int, help="Override number of wallpapers to collect per target (e.g. 10, 20)")
     p_auto.add_argument("--interval", "-i", type=int, default=3600, help="Continuous loop interval in seconds (default: 3600)")
     p_auto.add_argument("--config", "-c", type=str, help="Path to custom collector_config.json")
     p_auto.add_argument("--apikey", type=str, help="Wallhaven API key")

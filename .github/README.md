@@ -6,41 +6,51 @@ An automated, deduplicated, and classified wallpaper library adhering to strict 
 
 ## 📂 Storage Architecture
 
-Files are organized strictly by **Classification Type** and **Primary Category**, named after their permanent **Database ID**:
+Files are organized strictly by **Classification Type** and **Primary Category** (created on demand), named after their permanent **Database ID**:
 
 ```text
 Wallpapers/
 ├── AI/
+│   ├── Abstract/
+│   ├── Animals/
 │   ├── Anime/
 │   ├── Architecture/
-│   ├── Abstract/
 │   ├── Cars/
 │   ├── City/
+│   ├── Comics/
 │   ├── Cyberpunk/
+│   ├── Digital Art/
 │   ├── Fantasy/
 │   ├── Gaming/
+│   ├── Horror/
 │   ├── Landscape/
+│   ├── Military/
+│   ├── Minimalism/
+│   ├── Music/
 │   ├── Nature/
 │   ├── Ocean/
 │   ├── People/
+│   ├── Pixel Art/
 │   ├── Sci-Fi/
 │   ├── Space/
+│   ├── Sports/
+│   ├── Vehicles/
 │   └── Other/
 │
 ├── NON-AI/
-│   └── (15 categories)
+│   └── (25 categories)
 │
 └── UNKNOWN/
-    └── (15 categories)
+    └── (25 categories)
 ```
 
 ---
 
 ## 📊 Collection Summary
 
-* **Total 2K+ Wallpapers**: 317
-* **Total Library Size**: 1.13 GB
-* **Average Resolution**: 3871 × 2217 px
+* **Total 2K+ Wallpapers**: 339
+* **Total Library Size**: 1.26 GB
+* **Average Resolution**: 3926 × 2248 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -51,7 +61,7 @@ Wallpapers/
 # Install dependencies
 pip install -r requirements.txt
 
-# Run one automated collection cycle across all configured topics
+# Run automated collection across all 25 categories
 python agent.py auto --run-once
 
 # Start continuous collection daemon (every 1 hour)

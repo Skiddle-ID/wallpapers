@@ -14,28 +14,36 @@ MIN_PIXELS = 2560 * 1440  # 3,686,400
 # Classification Types
 TYPES = ["AI", "NON-AI", "UNKNOWN"]
 
-# 15 Primary Categories
+# Expanded Primary Categories (25 categories)
 CATEGORIES = [
+    "Abstract",
+    "Animals",
     "Anime",
     "Architecture",
-    "Abstract",
     "Cars",
     "City",
+    "Comics",
     "Cyberpunk",
+    "Digital Art",
     "Fantasy",
     "Gaming",
+    "Horror",
     "Landscape",
+    "Military",
+    "Minimalism",
+    "Music",
     "Nature",
     "Ocean",
     "People",
+    "Pixel Art",
     "Sci-Fi",
     "Space",
+    "Sports",
+    "Vehicles",
     "Other",
 ]
 
 # Perceptual hash hamming distance threshold for visual duplicates
-# Distance 0: Exact visual match
-# Distance <= 5: Very high visual similarity
 PHASH_SIMILARITY_THRESHOLD = 5
 
 # Supported file extensions

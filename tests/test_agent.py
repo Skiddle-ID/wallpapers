@@ -188,6 +188,24 @@ class TestWallpaperAgent(unittest.TestCase):
         nature_path = self.temp_dir / "green_forest_trees_waterfall.jpg"
         self.assertEqual(classify_category(nature_path), "Nature")
 
+        animal_path = self.temp_dir / "wild_wolf_snow.jpg"
+        self.assertEqual(classify_category(animal_path), "Animals")
+
+        comic_path = self.temp_dir / "batman_dark_knight_superhero.jpg"
+        self.assertEqual(classify_category(comic_path), "Comics")
+
+        pixel_path = self.temp_dir / "retro_city_pixel_art_8_bit.jpg"
+        self.assertEqual(classify_category(pixel_path), "Pixel Art")
+
+        music_path = self.temp_dir / "electric_guitar_concert_music.jpg"
+        self.assertEqual(classify_category(music_path), "Music")
+
+        horror_path = self.temp_dir / "gothic_skull_dark_horror.jpg"
+        self.assertEqual(classify_category(horror_path), "Horror")
+
+        military_path = self.temp_dir / "f22_fighter_jet_military.jpg"
+        self.assertEqual(classify_category(military_path), "Military")
+
     # --- Pipeline & Database Tests ---
     def test_sequential_permanent_ids(self):
         """Sequential IDs must be assigned: 1, 2, 3..."""
