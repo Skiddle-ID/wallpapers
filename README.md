@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 70
-* **Total Library Size**: 282.58 MB
-* **Average Resolution**: 4022 × 2285 px
+* **Total Curated Wallpapers**: 115
+* **Total Library Size**: 520.63 MB
+* **Average Resolution**: 4225 × 2480 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -23,8 +23,12 @@ Curated/
 ├── Anime/ (48 wallpapers)
 ├── City/ (1 wallpapers)
 ├── Comics/ (1 wallpapers)
-├── Landscape/ (17 wallpapers)
-└── Nature/ (1 wallpapers)
+├── Gaming/ (28 wallpapers)
+├── Landscape/ (23 wallpapers)
+├── Minimalism/ (1 wallpapers)
+├── Music/ (4 wallpapers)
+├── Nature/ (1 wallpapers)
+└── Ocean/ (6 wallpapers)
 ```
 
 ---
@@ -34,10 +38,14 @@ Curated/
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
 | `Anime` | **48** | Anime, manga, waifu, chibi, Ghibli |
-| `Landscape` | **17** | Mountains, lakes, rivers, sunsets, horizons |
+| `Gaming` | **28** | Video game art, characters, esports |
+| `Landscape` | **23** | Mountains, lakes, rivers, sunsets, horizons |
+| `Ocean` | **6** | Beaches, coastal waves, underwater coral |
+| `Music` | **4** | Instruments, concerts, guitars, synth |
 | `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `City` | **1** | Skylines, Tokyo streets, urban nightscapes |
 | `Nature` | **1** | Forests, plants, waterfalls, flowers, jungle |
+| `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Abstract` | 0 | Gradients, geometric shapes, 3D renders, fluid art |
 | `Architecture` | 0 | Bridges, temples, cathedrals, modern structures |
@@ -45,12 +53,8 @@ Curated/
 | `Cyberpunk` | 0 | Neon cities, synthwave, futuristic metropolis |
 | `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
 | `Fantasy` | 0 | Castles, dragons, mythical creatures, magic |
-| `Gaming` | 0 | Video game art, characters, esports |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
 | `Military` | 0 | Fighter jets, naval ships, aviation, armor |
-| `Minimalism` | 0 | Flat vector art, OLED/AMOLED, clean geometry |
-| `Music` | 0 | Instruments, concerts, guitars, synth |
-| `Ocean` | 0 | Beaches, coastal waves, underwater coral |
 | `Other` | 0 | Miscellaneous high-resolution art |
 | `People` | 0 | Portraits, models, human photography |
 | `Pixel Art` | 0 | 8-bit, 16-bit, retro arcade scenery, voxels |
