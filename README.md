@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 116
-* **Total Library Size**: 521.85 MB
-* **Average Resolution**: 4222 × 2477 px
+* **Total Curated Wallpapers**: 143
+* **Total Library Size**: 682.11 MB
+* **Average Resolution**: 4284 × 2536 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -20,7 +20,8 @@ Wallpapers are stored in high-resolution format directly under their respective 
 ```text
 Curated/
 ├── Animals/ (2 wallpapers)
-├── Anime/ (48 wallpapers)
+├── Anime/ (50 wallpapers)
+├── Architecture/ (25 wallpapers)
 ├── City/ (1 wallpapers)
 ├── Comics/ (1 wallpapers)
 ├── Gaming/ (28 wallpapers)
@@ -38,8 +39,9 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **48** | Anime, manga, waifu, chibi, Ghibli |
+| `Anime` | **50** | Anime, manga, waifu, chibi, Ghibli |
 | `Gaming` | **28** | Video game art, characters, esports |
+| `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
 | `Landscape` | **23** | Mountains, lakes, rivers, sunsets, horizons |
 | `Ocean` | **6** | Beaches, coastal waves, underwater coral |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
@@ -50,7 +52,6 @@ Curated/
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
 | `Abstract` | 0 | Gradients, geometric shapes, 3D renders, fluid art |
-| `Architecture` | 0 | Bridges, temples, cathedrals, modern structures |
 | `Cars` | 0 | Supercars, racing, sports cars, drift |
 | `Cyberpunk` | 0 | Neon cities, synthwave, futuristic metropolis |
 | `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
