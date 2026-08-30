@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 330
-* **Total Library Size**: 1.20 GB
-* **Average Resolution**: 4042 × 2339 px
+* **Total Curated Wallpapers**: 361
+* **Total Library Size**: 1.37 GB
+* **Average Resolution**: 4038 × 2336 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -19,21 +19,23 @@ Wallpapers are stored in high-resolution format directly under their respective 
 
 ```text
 Curated/
-├── Abstract/ (1 wallpapers)
-├── Animals/ (2 wallpapers)
-├── Anime/ (196 wallpapers)
+├── Abstract/ (3 wallpapers)
+├── Animals/ (3 wallpapers)
+├── Anime/ (205 wallpapers)
 ├── Architecture/ (25 wallpapers)
-├── City/ (1 wallpapers)
+├── City/ (8 wallpapers)
 ├── Comics/ (1 wallpapers)
+├── Cyberpunk/ (1 wallpapers)
 ├── Fantasy/ (19 wallpapers)
 ├── Gaming/ (28 wallpapers)
 ├── Landscape/ (24 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (4 wallpapers)
-├── Nature/ (7 wallpapers)
+├── Nature/ (8 wallpapers)
 ├── Ocean/ (7 wallpapers)
-├── Other/ (13 wallpapers)
-└── Pixel Art/ (1 wallpapers)
+├── Other/ (19 wallpapers)
+├── Pixel Art/ (1 wallpapers)
+└── Space/ (4 wallpapers)
 ```
 
 ---
@@ -42,29 +44,29 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **196** | Anime, manga, waifu, chibi, Ghibli |
+| `Anime` | **205** | Anime, manga, waifu, chibi, Ghibli |
 | `Gaming` | **28** | Video game art, characters, esports |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
 | `Landscape` | **24** | Mountains, lakes, rivers, sunsets, horizons |
+| `Other` | **19** | Miscellaneous high-resolution art |
 | `Fantasy` | **19** | Castles, dragons, mythical creatures, magic |
-| `Other` | **13** | Miscellaneous high-resolution art |
-| `Nature` | **7** | Forests, plants, waterfalls, flowers, jungle |
+| `City` | **8** | Skylines, Tokyo streets, urban nightscapes |
+| `Nature` | **8** | Forests, plants, waterfalls, flowers, jungle |
 | `Ocean` | **7** | Beaches, coastal waves, underwater coral |
+| `Space` | **4** | Galaxies, nebulas, solar systems, planets |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
-| `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
-| `City` | **1** | Skylines, Tokyo streets, urban nightscapes |
-| `Abstract` | **1** | Gradients, geometric shapes, 3D renders, fluid art |
+| `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
+| `Abstract` | **3** | Gradients, geometric shapes, 3D renders, fluid art |
+| `Cyberpunk` | **1** | Neon cities, synthwave, futuristic metropolis |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
 | `Cars` | 0 | Supercars, racing, sports cars, drift |
-| `Cyberpunk` | 0 | Neon cities, synthwave, futuristic metropolis |
 | `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
 | `Military` | 0 | Fighter jets, naval ships, aviation, armor |
 | `People` | 0 | Portraits, models, human photography |
 | `Sci-Fi` | 0 | Spaceships, robots, aliens, futuristic tech |
-| `Space` | 0 | Galaxies, nebulas, solar systems, planets |
 | `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
 | `Vehicles` | 0 | Motorcycles, aircraft, trains, yachts |
 
