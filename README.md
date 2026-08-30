@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 471
-* **Total Library Size**: 1.98 GB
-* **Average Resolution**: 4121 × 2394 px
+* **Total Curated Wallpapers**: 517
+* **Total Library Size**: 2.25 GB
+* **Average Resolution**: 4155 × 2406 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -23,7 +23,8 @@ Curated/
 ├── Animals/ (3 wallpapers)
 ├── Anime/ (234 wallpapers)
 ├── Architecture/ (25 wallpapers)
-├── City/ (9 wallpapers)
+├── Cars/ (15 wallpapers)
+├── City/ (24 wallpapers)
 ├── Comics/ (1 wallpapers)
 ├── Cyberpunk/ (21 wallpapers)
 ├── Fantasy/ (27 wallpapers)
@@ -31,12 +32,12 @@ Curated/
 ├── Landscape/ (30 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (4 wallpapers)
-├── Nature/ (18 wallpapers)
-├── Ocean/ (7 wallpapers)
+├── Nature/ (21 wallpapers)
+├── Ocean/ (14 wallpapers)
 ├── Other/ (47 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
-├── Sci-Fi/ (1 wallpapers)
-└── Space/ (11 wallpapers)
+├── Sci-Fi/ (3 wallpapers)
+└── Space/ (15 wallpapers)
 ```
 
 ---
@@ -51,19 +52,19 @@ Curated/
 | `Gaming` | **28** | Video game art, characters, esports |
 | `Fantasy` | **27** | Castles, dragons, mythical creatures, magic |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
+| `City` | **24** | Skylines, Tokyo streets, urban nightscapes |
+| `Nature` | **21** | Forests, plants, waterfalls, flowers, jungle |
 | `Cyberpunk` | **21** | Neon cities, synthwave, futuristic metropolis |
-| `Nature` | **18** | Forests, plants, waterfalls, flowers, jungle |
-| `Space` | **11** | Galaxies, nebulas, solar systems, planets |
-| `City` | **9** | Skylines, Tokyo streets, urban nightscapes |
-| `Ocean` | **7** | Beaches, coastal waves, underwater coral |
+| `Space` | **15** | Galaxies, nebulas, solar systems, planets |
+| `Cars` | **15** | Supercars, racing, sports cars, drift |
+| `Ocean` | **14** | Beaches, coastal waves, underwater coral |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `Abstract` | **3** | Gradients, geometric shapes, 3D renders, fluid art |
+| `Sci-Fi` | **3** | Spaceships, robots, aliens, futuristic tech |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
-| `Sci-Fi` | **1** | Spaceships, robots, aliens, futuristic tech |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
-| `Cars` | 0 | Supercars, racing, sports cars, drift |
 | `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
 | `Military` | 0 | Fighter jets, naval ships, aviation, armor |

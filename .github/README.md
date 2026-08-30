@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 471
-* **Total Library Size**: 1.98 GB
-* **Average Resolution**: 4121 × 2394 px
+* **Total Curated Wallpapers**: 517
+* **Total Library Size**: 2.25 GB
+* **Average Resolution**: 4155 × 2406 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -23,7 +23,8 @@ Curated/
 ├── Animals/ (3 wallpapers)
 ├── Anime/ (234 wallpapers)
 ├── Architecture/ (25 wallpapers)
-├── City/ (9 wallpapers)
+├── Cars/ (15 wallpapers)
+├── City/ (24 wallpapers)
 ├── Comics/ (1 wallpapers)
 ├── Cyberpunk/ (21 wallpapers)
 ├── Fantasy/ (27 wallpapers)
@@ -31,12 +32,12 @@ Curated/
 ├── Landscape/ (30 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (4 wallpapers)
-├── Nature/ (18 wallpapers)
-├── Ocean/ (7 wallpapers)
+├── Nature/ (21 wallpapers)
+├── Ocean/ (14 wallpapers)
 ├── Other/ (47 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
-├── Sci-Fi/ (1 wallpapers)
-└── Space/ (11 wallpapers)
+├── Sci-Fi/ (3 wallpapers)
+└── Space/ (15 wallpapers)
 ```
 
 ---
