@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 52
-* **Total Library Size**: 187.80 MB
-* **Average Resolution**: 3980 × 2255 px
+* **Total Curated Wallpapers**: 70
+* **Total Library Size**: 282.58 MB
+* **Average Resolution**: 4022 × 2285 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -22,6 +22,8 @@ Curated/
 ├── Animals/ (2 wallpapers)
 ├── Anime/ (48 wallpapers)
 ├── City/ (1 wallpapers)
+├── Comics/ (1 wallpapers)
+├── Landscape/ (17 wallpapers)
 └── Nature/ (1 wallpapers)
 ```
 
@@ -32,19 +34,19 @@ Curated/
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
 | `Anime` | **48** | Anime, manga, waifu, chibi, Ghibli |
+| `Landscape` | **17** | Mountains, lakes, rivers, sunsets, horizons |
 | `Animals` | **2** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `City` | **1** | Skylines, Tokyo streets, urban nightscapes |
 | `Nature` | **1** | Forests, plants, waterfalls, flowers, jungle |
+| `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Abstract` | 0 | Gradients, geometric shapes, 3D renders, fluid art |
 | `Architecture` | 0 | Bridges, temples, cathedrals, modern structures |
 | `Cars` | 0 | Supercars, racing, sports cars, drift |
-| `Comics` | 0 | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Cyberpunk` | 0 | Neon cities, synthwave, futuristic metropolis |
 | `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
 | `Fantasy` | 0 | Castles, dragons, mythical creatures, magic |
 | `Gaming` | 0 | Video game art, characters, esports |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
-| `Landscape` | 0 | Mountains, lakes, rivers, sunsets, horizons |
 | `Military` | 0 | Fighter jets, naval ships, aviation, armor |
 | `Minimalism` | 0 | Flat vector art, OLED/AMOLED, clean geometry |
 | `Music` | 0 | Instruments, concerts, guitars, synth |
