@@ -6,10 +6,15 @@ An automated, deduplicated, and classified wallpaper library adhering to strict 
 
 ## 📊 Collection Statistics
 
-* **Total 2K+ Wallpapers**: 339
-* **Total Library Size**: 1.26 GB
-* **Average Resolution**: 3926 × 2248 px
+* **Total 2K+ Wallpapers**: 538
+* **Total Library Size**: 2.28 GB
+* **Average Resolution**: 4130 × 2392 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
+
+### Classification Breakdown
+* 🟢 **NON-AI**: 113 (21.0%)
+* ⚪ **UNKNOWN**: 417 (77.5%)
+* 🟣 **AI**: 8 (1.5%)
 
 ---
 
@@ -169,7 +174,18 @@ python agent.py process
 python agent.py search --category Space --min-width 3840
 ```
 
-### 7. Verify Filesystem Integrity
+### 7. Reclassify & Reorganize Existing Library
+Re-evaluate all existing wallpapers using the latest AI and category rules:
+
+```bash
+# Preview reclassification changes
+python agent.py reclassify --dry-run
+
+# Apply reclassification and move files to updated folders
+python agent.py reclassify
+```
+
+### 8. Verify Filesystem Integrity
 ```bash
 python agent.py verify
 ```

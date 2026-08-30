@@ -18,6 +18,7 @@ from .db import (
 from .downloaders.wallhaven import WallhavenDownloader
 from .migrator import migrate_legacy_collection
 from .pipeline import download_image, process_image, process_incoming
+from .reclassifier import reclassify_archive
 from .storage import ensure_storage_structure, prune_empty_folders
 
 
@@ -233,6 +234,30 @@ def cmd_verify(args: argparse.Namespace) -> None:
         print("All database records match files on disk perfectly.")
 
 
+def cmd_reclassify(args: argparse.Namespace) -> None:
+    """Re-evaluate all existing wallpapers with the updated classifier."""
+    init_db()
+    mode_str = " (DRY RUN)" if args.dry_run else ""
+    print(f"Starting archive reclassification{mode_str}...")
+    summary = reclassify_archive(dry_run=args.dry_run)
+
+    print("\n" + "=" * 50)
+    print(f" RECLASSIFICATION SUMMARY{mode_str}")
+    print("=" * 50)
+    print(f"Total Evaluated:     {summary['total']}")
+    print(f"Unchanged:           {summary['unchanged']}")
+    print(f"Type (AI/Non) Moved: {summary['type_updated']}")
+    print(f"Category Moved:      {summary['category_updated']}")
+    print(f"Both Moved:          {summary['both_updated']}")
+    print(f"Missing on Disk:     {summary['missing_on_disk']}")
+
+    if summary["changes"]:
+        print("\nSample Reclassifications (first 10):")
+        for ch in summary["changes"][:10]:
+            print(f"  ID {ch['id']:<4} | {ch['from']:<20} -> {ch['to']:<20} ({ch['signal']})")
+    print("=" * 50 + "\n")
+
+
 def cmd_search(args: argparse.Namespace) -> None:
     """Search wallpapers by filters."""
     init_db()
@@ -321,6 +346,10 @@ def build_parser() -> argparse.ArgumentParser:
     # verify
     subparsers.add_parser("verify", help="Verify database integrity against disk")
 
+    # reclassify
+    p_rec = subparsers.add_parser("reclassify", help="Re-evaluate and organize existing wallpapers using updated classifier")
+    p_rec.add_argument("--dry-run", action="store_true", help="Preview changes without modifying database or moving files")
+
     # search
     p_srch = subparsers.add_parser("search", help="Search wallpaper records")
     p_srch.add_argument("--type", "-t", choices=TYPES, help="Filter by type")
@@ -350,6 +379,7 @@ def main() -> None:
         "auto": cmd_auto,
         "migrate": cmd_migrate,
         "verify": cmd_verify,
+        "reclassify": cmd_reclassify,
         "search": cmd_search,
     }
 

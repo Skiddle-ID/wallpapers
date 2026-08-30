@@ -3,7 +3,7 @@
 Thumbs.db
 .directory
 
-# Python caches and virtual environments
+# Python caches, testing, and virtual environments
 __pycache__/
 *.py[cod]
 *$py.class
@@ -11,10 +11,30 @@ __pycache__/
 env/
 venv/
 .pytest_cache/
+.coverage
+htmlcov/
 
-# Collection Agent
+# Machine Learning model caches & weights
+.cache/
+.huggingface/
+hf_cache/
+models/
+*.onnx
+*.pt
+*.bin
+*.safetensors
+
+# Wallpaper download, buffer & temporary caches
 incoming/*
 !incoming/.gitkeep
+downloads/
+cache/
+temp/
+tmp/
+*.tmp
+*.log
+
+# SQLite runtime files
 *.db-journal
 *.db-wal
 *.db-shm

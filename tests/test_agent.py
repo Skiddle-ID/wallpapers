@@ -153,17 +153,17 @@ class TestWallpaperAgent(unittest.TestCase):
     def test_ai_classification(self):
         ai_path = self.temp_dir / "skiddle-generated-1.jpg"
         ai_path.touch()
-        ai_type, conf = classify_ai(ai_path)
+        ai_type, conf, _ = classify_ai(ai_path)
         self.assertEqual(ai_type, "AI")
 
         midjourney_path = self.temp_dir / "midjourney_artwork.jpg"
         midjourney_path.touch()
-        mj_type, _ = classify_ai(midjourney_path)
+        mj_type, _, _ = classify_ai(midjourney_path)
         self.assertEqual(mj_type, "AI")
 
         unknown_path = self.temp_dir / "unnamed_photo.jpg"
         unknown_path.touch()
-        un_type, _ = classify_ai(unknown_path)
+        un_type, _, _ = classify_ai(unknown_path)
         self.assertEqual(un_type, "UNKNOWN")
 
     def test_category_classification(self):

@@ -48,9 +48,9 @@ Wallpapers/
 
 ## 📊 Collection Summary
 
-* **Total 2K+ Wallpapers**: 339
-* **Total Library Size**: 1.26 GB
-* **Average Resolution**: 3926 × 2248 px
+* **Total 2K+ Wallpapers**: 538
+* **Total Library Size**: 2.28 GB
+* **Average Resolution**: 4130 × 2392 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---

@@ -2,16 +2,19 @@
 
 import re
 from pathlib import Path
-from typing import Dict, NamedTuple, Optional, Tuple
+from typing import Any, Dict, NamedTuple, Optional, Tuple
 from PIL import Image
+from PIL.ExifTags import TAGS
 
 from .config import CATEGORIES, TYPES
+from .vision_classifier import classify_image_visually, is_vision_available
 
 
 class ClassificationResult(NamedTuple):
     type: str  # "AI", "NON-AI", "UNKNOWN"
     category: str  # One of the official categories
     ai_confidence: float  # 0.0 to 1.0
+    detected_signals: str = ""  # Explanation of detected signals
 
 
 # Keyword patterns for category assignment
@@ -129,85 +132,142 @@ def normalize_text(text: str) -> str:
     return re.sub(r"[^a-zA-Z0-9]+", " ", text).lower()
 
 
-def extract_metadata_strings(file_path: Path) -> str:
-    """Extract string metadata from image EXIF and PNG text info."""
-    meta_strings = []
+def extract_detailed_image_metadata(file_path: Path) -> Dict[str, Any]:
+    """
+    Extract comprehensive metadata from image headers, EXIF tags, and PNG chunks.
+    """
+    metadata: Dict[str, Any] = {
+        "text_chunks": {},
+        "exif_tags": {},
+        "has_camera_exif": False,
+        "ai_generation_parameters": None,
+    }
+
     try:
         with Image.open(file_path) as img:
+            # 1. PNG / WebP Text Info Chunks
             if hasattr(img, "info") and img.info:
                 for k, v in img.info.items():
                     if isinstance(v, str):
-                        meta_strings.append(f"{k}: {v}")
-            exif = img.getexif()
-            if exif:
-                for tag_id, val in exif.items():
-                    if isinstance(val, str):
-                        meta_strings.append(str(val))
+                        metadata["text_chunks"][k] = v
+                        # Check for AI generation parameters
+                        if k in ["parameters", "prompt", "workflow", "Comment", "sd-metadata"]:
+                            metadata["ai_generation_parameters"] = v
+
+            # 2. EXIF Data (JPEG, TIFF, WebP)
+            exif_raw = img.getexif()
+            if exif_raw:
+                for tag_id, val in exif_raw.items():
+                    tag_name = TAGS.get(tag_id, str(tag_id))
+                    if isinstance(val, (str, int, float)):
+                        metadata["exif_tags"][tag_name] = str(val)
+
+                # Check for camera hardware signatures
+                camera_keys = ["Make", "Model", "FNumber", "ExposureTime", "ISOSpeedRatings", "FocalLength"]
+                if any(k in metadata["exif_tags"] for k in camera_keys):
+                    metadata["has_camera_exif"] = True
+
     except Exception:
         pass
-    return " ".join(meta_strings)
+
+    return metadata
 
 
 def classify_ai(
     file_path: Path,
     source: Optional[str] = None,
     source_url: Optional[str] = None,
+    tags: Optional[List[str]] = None,
     metadata_hint: Optional[Dict] = None,
-) -> Tuple[str, float]:
+) -> Tuple[str, float, str]:
     """
-    Classify whether image is AI, NON-AI, or UNKNOWN.
-    Returns (classification, confidence).
+    Classify whether an image is AI, NON-AI, or UNKNOWN with confidence score.
+    Returns (classification, confidence, detected_signal).
     """
     hint_type = (metadata_hint or {}).get("type")
     if hint_type in TYPES:
-        return hint_type, 1.0
+        return hint_type, 1.0, f"Explicit type hint: {hint_type}"
 
-    raw_text = f"{file_path.name} {file_path.parent.name} {source or ''} {source_url or ''}"
-    meta_str = extract_metadata_strings(file_path)
-    combined = normalize_text(f"{raw_text} {meta_str}")
+    # Extract deep file metadata
+    img_meta = extract_detailed_image_metadata(file_path)
 
-    # Check for strong AI indicators
+    # 1. Embedded AI Prompt / Generation Parameters Check (Definitive AI)
+    if img_meta.get("ai_generation_parameters"):
+        param_str = str(img_meta["ai_generation_parameters"]).lower()
+        if any(w in param_str for w in ["steps:", "sampler:", "cfg scale:", "seed:", "model:", "negative prompt:"]):
+            return "AI", 0.99, "Embedded Stable Diffusion/WebUI generation parameters in PNG chunk"
+
+    # Build searchable corpus
+    tag_corpus = " ".join(tags or [])
+    raw_text = f"{file_path.name} {file_path.parent.name} {source or ''} {source_url or ''} {tag_corpus}"
+    text_chunks_str = " ".join(f"{k}: {v}" for k, v in img_meta.get("text_chunks", {}).items())
+    exif_str = " ".join(f"{k}: {v}" for k, v in img_meta.get("exif_tags", {}).items())
+    combined = normalize_text(f"{raw_text} {text_chunks_str} {exif_str}")
+
+    # 2. Known AI Indicators (Filename, Source, Tags, Software)
     ai_patterns = [
-        r"\bskiddle\s+generated\b",
-        r"\bmidjourney\b",
-        r"\bstable\s+diffusion\b",
-        r"\bdall\s*e\b",
-        r"\bnovelai\b",
-        r"\bcomfyui\b",
-        r"\bautomatic1111\b",
-        r"\blexica\b",
-        r"\bcivitai\b",
-        r"\bai\s+generated\b",
-        r"\bai\s+art\b",
+        (r"\bskiddle\s+generated\b", "Skiddle AI Generator"),
+        (r"\bmidjourney\b", "Midjourney tag/metadata"),
+        (r"\bstable\s+diffusion\b", "Stable Diffusion tag/metadata"),
+        (r"\bdall\s*e\b", "DALL-E signature"),
+        (r"\bnovelai\b", "NovelAI generation tag"),
+        (r"\bflux\s*1\b", "FLUX.1 AI model"),
+        (r"\bsdxl\b", "SDXL model"),
+        (r"\bcomfyui\b", "ComfyUI workflow metadata"),
+        (r"\bautomatic1111\b", "Automatic1111 WebUI"),
+        (r"\blexica\b", "Lexica AI repository"),
+        (r"\bcivitai\b", "Civitai model platform"),
+        (r"\bai\s+generated\b", "AI-generated source tag"),
+        (r"\bai\s+art\b", "AI Art tag"),
+        (r"\bprompt\s*:\s*", "Prompt syntax header"),
     ]
 
-    for pat in ai_patterns:
+    for pat, label in ai_patterns:
         if re.search(pat, combined):
-            return "AI", 0.95
+            return "AI", 0.95, f"AI indicator detected: {label}"
 
-    # Check for strong Non-AI indicators (photographs with camera EXIF, official studios)
+    # 3. Known NON-AI Indicators (Camera EXIF, Official Studios, Verified Stock Photo Portals)
+    if img_meta.get("has_camera_exif"):
+        make = img_meta["exif_tags"].get("Make", "Camera")
+        model = img_meta["exif_tags"].get("Model", "")
+        return "NON-AI", 0.95, f"Physical camera hardware EXIF ({make} {model})".strip()
+
     non_ai_patterns = [
-        r"\bnikon\b", r"\bcanon\b", r"\bsony\b", r"\bfujifilm\b",
-        r"\bunsplash\b", r"\bpixabay\b", r"\buhdpaper\b",
-        r"\bpokemon\b", r"\bpikachu\b", r"\bnintendo\b",
-        r"\bendfield\b", r"\bwuwa\b", r"\barknights\b"
+        (r"\bunsplash\b", "Unsplash photography"),
+        (r"\bpixabay\b", "Pixabay stock photo"),
+        (r"\bpexels\b", "Pexels photography"),
+        (r"\bcanon\b", "Canon photography"),
+        (r"\bnikon\b", "Nikon photography"),
+        (r"\bsony\s*alpha\b", "Sony Alpha camera"),
+        (r"\bfujifilm\b", "Fujifilm camera"),
+        (r"\bpokemon\b", "Official Pokémon franchise"),
+        (r"\bpikachu\b", "Official Pokémon media"),
+        (r"\bnintendo\b", "Nintendo media"),
+        (r"\bendfield\b", "Arknights: Endfield official media"),
+        (r"\bwuwa\b", "Wuthering Waves official media"),
+        (r"\barknights\b", "Arknights official media"),
+        (r"\btoei\s*animation\b", "Toei Animation studio"),
+        (r"\bkyoto\s*animation\b", "Kyoto Animation studio"),
+        (r"\bufotable\b", "Ufotable studio"),
+        (r"\bghibli\b", "Studio Ghibli"),
     ]
 
-    for pat in non_ai_patterns:
+    for pat, label in non_ai_patterns:
         if re.search(pat, combined):
-            return "NON-AI", 0.85
+            return "NON-AI", 0.90, f"NON-AI source/studio detected: {label}"
 
-    # Default to UNKNOWN when origin cannot be determined with confidence
-    return "UNKNOWN", 0.5
+    # 4. Fallback to UNKNOWN when evidence is not conclusive
+    return "UNKNOWN", 0.5, "Insufficient provenance data for definitive classification"
 
 
 def classify_category(
     file_path: Path,
     category_hint: Optional[str] = None,
-    source_url: Optional[str] = None
+    source_url: Optional[str] = None,
+    tags: Optional[List[str]] = None,
 ) -> str:
     """
-    Assign one of the official categories.
+    Assign one of the 25 official categories.
     """
     if category_hint:
         normalized_hint = category_hint.strip()
@@ -247,7 +307,8 @@ def classify_category(
         if normalized_hint in synonyms:
             return synonyms[normalized_hint]
 
-    raw_text = f"{file_path.name} {file_path.parent.name} {source_url or ''}"
+    tag_str = " ".join(tags or [])
+    raw_text = f"{file_path.name} {file_path.parent.name} {source_url or ''} {tag_str}"
     text = normalize_text(raw_text)
 
     scores: Dict[str, int] = {cat: 0 for cat in CATEGORIES}
@@ -262,6 +323,12 @@ def classify_category(
     if best_score > 0:
         return best_cat
 
+    # Visual Fallback: Use CLIP zero-shot vision model if available
+    if is_vision_available():
+        vision_scores = classify_image_visually(file_path, top_k=1)
+        if vision_scores and vision_scores[0][1] >= 0.20:
+            return vision_scores[0][0]
+
     return "Other"
 
 
@@ -269,25 +336,29 @@ def classify_image(
     file_path: Path,
     source: Optional[str] = None,
     source_url: Optional[str] = None,
+    tags: Optional[List[str]] = None,
     category_hint: Optional[str] = None,
     metadata_hint: Optional[Dict] = None,
 ) -> ClassificationResult:
     """
     Perform full classification on an image file.
     """
-    ai_type, confidence = classify_ai(
+    ai_type, confidence, signal = classify_ai(
         file_path,
         source=source,
         source_url=source_url,
+        tags=tags,
         metadata_hint=metadata_hint
     )
     category = classify_category(
         file_path,
         category_hint=category_hint,
-        source_url=source_url
+        source_url=source_url,
+        tags=tags,
     )
     return ClassificationResult(
         type=ai_type,
         category=category,
-        ai_confidence=confidence
+        ai_confidence=confidence,
+        detected_signals=signal,
     )
