@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 33
-* **Total Library Size**: 121.33 MB
-* **Average Resolution**: 3850 × 2174 px
+* **Total Curated Wallpapers**: 34
+* **Total Library Size**: 122.19 MB
+* **Average Resolution**: 3857 × 2178 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -19,64 +19,42 @@ Wallpapers are stored in high-resolution format directly under their respective 
 
 ```text
 Curated/
-├── Abstract/
-├── Animals/
-├── Anime/
-├── Architecture/
-├── Cars/
-├── City/
-├── Comics/
-├── Cyberpunk/
-├── Digital Art/
-├── Fantasy/
-├── Gaming/
-├── Horror/
-├── Landscape/
-├── Military/
-├── Minimalism/
-├── Music/
-├── Nature/
-├── Ocean/
-├── People/
-├── Pixel Art/
-├── Sci-Fi/
-├── Space/
-├── Sports/
-├── Vehicles/
-└── Other/
+├── Animals/ (1 wallpapers)
+├── Anime/ (32 wallpapers)
+└── City/ (1 wallpapers)
 ```
 
 ---
 
 ## 🏷️ 25 Official Categories
 
-| Category | Description / Examples |
-|---|---|
-| `Abstract` | Gradients, geometric shapes, 3D renders, fluid art |
-| `Animals` | Wildlife, cats, dogs, wolves, birds, marine life |
-| `Anime` | Anime, manga, waifu, chibi, Ghibli |
-| `Architecture` | Bridges, temples, cathedrals, modern structures |
-| `Cars` | Supercars, racing, sports cars, drift |
-| `City` | Skylines, Tokyo streets, urban nightscapes |
-| `Comics` | Marvel, DC, superheroes, Batman, Spider-Man |
-| `Cyberpunk` | Neon cities, synthwave, futuristic metropolis |
-| `Digital Art` | Concept art, CGI, ArtStation illustrations |
-| `Fantasy` | Castles, dragons, mythical creatures, magic |
-| `Gaming` | Video game art, characters, esports |
-| `Horror` | Gothic art, dark fantasy, skulls, monsters |
-| `Landscape` | Mountains, lakes, rivers, sunsets, horizons |
-| `Military` | Fighter jets, naval ships, aviation, armor |
-| `Minimalism` | Flat vector art, OLED/AMOLED, clean geometry |
-| `Music` | Instruments, concerts, guitars, synth |
-| `Nature` | Forests, plants, waterfalls, flowers, jungle |
-| `Ocean` | Beaches, coastal waves, underwater coral |
-| `People` | Portraits, models, human photography |
-| `Pixel Art` | 8-bit, 16-bit, retro arcade scenery, voxels |
-| `Sci-Fi` | Spaceships, robots, aliens, futuristic tech |
-| `Space` | Galaxies, nebulas, solar systems, planets |
-| `Sports` | Basketball, skateboarding, surfing, athletics |
-| `Vehicles` | Motorcycles, aircraft, trains, yachts |
-| `Other` | Miscellaneous high-resolution art |
+| Category | Wallpapers | Description / Examples |
+|---|:---:|---|
+| `Anime` | **32** | Anime, manga, waifu, chibi, Ghibli |
+| `Animals` | **1** | Wildlife, cats, dogs, wolves, birds, marine life |
+| `City` | **1** | Skylines, Tokyo streets, urban nightscapes |
+| `Abstract` | 0 | Gradients, geometric shapes, 3D renders, fluid art |
+| `Architecture` | 0 | Bridges, temples, cathedrals, modern structures |
+| `Cars` | 0 | Supercars, racing, sports cars, drift |
+| `Comics` | 0 | Marvel, DC, superheroes, Batman, Spider-Man |
+| `Cyberpunk` | 0 | Neon cities, synthwave, futuristic metropolis |
+| `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
+| `Fantasy` | 0 | Castles, dragons, mythical creatures, magic |
+| `Gaming` | 0 | Video game art, characters, esports |
+| `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
+| `Landscape` | 0 | Mountains, lakes, rivers, sunsets, horizons |
+| `Military` | 0 | Fighter jets, naval ships, aviation, armor |
+| `Minimalism` | 0 | Flat vector art, OLED/AMOLED, clean geometry |
+| `Music` | 0 | Instruments, concerts, guitars, synth |
+| `Nature` | 0 | Forests, plants, waterfalls, flowers, jungle |
+| `Ocean` | 0 | Beaches, coastal waves, underwater coral |
+| `Other` | 0 | Miscellaneous high-resolution art |
+| `People` | 0 | Portraits, models, human photography |
+| `Pixel Art` | 0 | 8-bit, 16-bit, retro arcade scenery, voxels |
+| `Sci-Fi` | 0 | Spaceships, robots, aliens, futuristic tech |
+| `Space` | 0 | Galaxies, nebulas, solar systems, planets |
+| `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
+| `Vehicles` | 0 | Motorcycles, aircraft, trains, yachts |
 
 ---
 
