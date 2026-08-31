@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 517
-* **Total Library Size**: 2.25 GB
-* **Average Resolution**: 4155 × 2406 px
+* **Total Curated Wallpapers**: 536
+* **Total Library Size**: 2.31 GB
+* **Average Resolution**: 4160 × 2400 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -19,7 +19,7 @@ Wallpapers are stored in high-resolution format directly under their respective 
 
 ```text
 Curated/
-├── Abstract/ (3 wallpapers)
+├── Abstract/ (11 wallpapers)
 ├── Animals/ (3 wallpapers)
 ├── Anime/ (234 wallpapers)
 ├── Architecture/ (25 wallpapers)
@@ -36,7 +36,7 @@ Curated/
 ├── Ocean/ (14 wallpapers)
 ├── Other/ (47 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
-├── Sci-Fi/ (3 wallpapers)
+├── Sci-Fi/ (14 wallpapers)
 └── Space/ (15 wallpapers)
 ```
 
@@ -58,10 +58,10 @@ Curated/
 | `Space` | **15** | Galaxies, nebulas, solar systems, planets |
 | `Cars` | **15** | Supercars, racing, sports cars, drift |
 | `Ocean` | **14** | Beaches, coastal waves, underwater coral |
+| `Sci-Fi` | **14** | Spaceships, robots, aliens, futuristic tech |
+| `Abstract` | **11** | Gradients, geometric shapes, 3D renders, fluid art |
 | `Music` | **4** | Instruments, concerts, guitars, synth |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
-| `Abstract` | **3** | Gradients, geometric shapes, 3D renders, fluid art |
-| `Sci-Fi` | **3** | Spaceships, robots, aliens, futuristic tech |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
