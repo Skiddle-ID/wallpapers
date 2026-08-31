@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 517
-* **Total Library Size**: 2.25 GB
-* **Average Resolution**: 4155 × 2406 px
+* **Total Curated Wallpapers**: 586
+* **Total Library Size**: 2.58 GB
+* **Average Resolution**: 4179 × 2429 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -19,24 +19,26 @@ Wallpapers are stored in high-resolution format directly under their respective 
 
 ```text
 Curated/
-├── Abstract/ (3 wallpapers)
+├── Abstract/ (12 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (234 wallpapers)
+├── Anime/ (235 wallpapers)
 ├── Architecture/ (25 wallpapers)
 ├── Cars/ (15 wallpapers)
-├── City/ (24 wallpapers)
+├── City/ (29 wallpapers)
 ├── Comics/ (1 wallpapers)
-├── Cyberpunk/ (21 wallpapers)
+├── Cyberpunk/ (29 wallpapers)
+├── Digital Art/ (10 wallpapers)
 ├── Fantasy/ (27 wallpapers)
-├── Gaming/ (28 wallpapers)
+├── Gaming/ (37 wallpapers)
 ├── Landscape/ (30 wallpapers)
+├── Military/ (7 wallpapers)
 ├── Minimalism/ (1 wallpapers)
-├── Music/ (4 wallpapers)
+├── Music/ (7 wallpapers)
 ├── Nature/ (21 wallpapers)
 ├── Ocean/ (14 wallpapers)
-├── Other/ (47 wallpapers)
+├── Other/ (53 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
-├── Sci-Fi/ (3 wallpapers)
+├── Sci-Fi/ (14 wallpapers)
 └── Space/ (15 wallpapers)
 ```
 
@@ -46,28 +48,28 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **234** | Anime, manga, waifu, chibi, Ghibli |
-| `Other` | **47** | Miscellaneous high-resolution art |
+| `Anime` | **235** | Anime, manga, waifu, chibi, Ghibli |
+| `Other` | **53** | Miscellaneous high-resolution art |
+| `Gaming` | **37** | Video game art, characters, esports |
 | `Landscape` | **30** | Mountains, lakes, rivers, sunsets, horizons |
-| `Gaming` | **28** | Video game art, characters, esports |
+| `City` | **29** | Skylines, Tokyo streets, urban nightscapes |
+| `Cyberpunk` | **29** | Neon cities, synthwave, futuristic metropolis |
 | `Fantasy` | **27** | Castles, dragons, mythical creatures, magic |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
-| `City` | **24** | Skylines, Tokyo streets, urban nightscapes |
 | `Nature` | **21** | Forests, plants, waterfalls, flowers, jungle |
-| `Cyberpunk` | **21** | Neon cities, synthwave, futuristic metropolis |
 | `Space` | **15** | Galaxies, nebulas, solar systems, planets |
 | `Cars` | **15** | Supercars, racing, sports cars, drift |
 | `Ocean` | **14** | Beaches, coastal waves, underwater coral |
-| `Music` | **4** | Instruments, concerts, guitars, synth |
+| `Sci-Fi` | **14** | Spaceships, robots, aliens, futuristic tech |
+| `Abstract` | **12** | Gradients, geometric shapes, 3D renders, fluid art |
+| `Digital Art` | **10** | Concept art, CGI, ArtStation illustrations |
+| `Music` | **7** | Instruments, concerts, guitars, synth |
+| `Military` | **7** | Fighter jets, naval ships, aviation, armor |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
-| `Abstract` | **3** | Gradients, geometric shapes, 3D renders, fluid art |
-| `Sci-Fi` | **3** | Spaceships, robots, aliens, futuristic tech |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
-| `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
-| `Military` | 0 | Fighter jets, naval ships, aviation, armor |
 | `People` | 0 | Portraits, models, human photography |
 | `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
 | `Vehicles` | 0 | Motorcycles, aircraft, trains, yachts |
