@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 586
-* **Total Library Size**: 2.58 GB
-* **Average Resolution**: 4179 × 2429 px
+* **Total Curated Wallpapers**: 605
+* **Total Library Size**: 2.69 GB
+* **Average Resolution**: 4188 × 2435 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -21,22 +21,22 @@ Wallpapers are stored in high-resolution format directly under their respective 
 Curated/
 ├── Abstract/ (12 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (235 wallpapers)
+├── Anime/ (242 wallpapers)
 ├── Architecture/ (25 wallpapers)
 ├── Cars/ (15 wallpapers)
 ├── City/ (29 wallpapers)
 ├── Comics/ (1 wallpapers)
 ├── Cyberpunk/ (29 wallpapers)
 ├── Digital Art/ (10 wallpapers)
-├── Fantasy/ (27 wallpapers)
+├── Fantasy/ (37 wallpapers)
 ├── Gaming/ (37 wallpapers)
 ├── Landscape/ (30 wallpapers)
 ├── Military/ (7 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (7 wallpapers)
 ├── Nature/ (21 wallpapers)
-├── Ocean/ (14 wallpapers)
-├── Other/ (53 wallpapers)
+├── Ocean/ (15 wallpapers)
+├── Other/ (54 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
 ├── Sci-Fi/ (14 wallpapers)
 └── Space/ (15 wallpapers)
@@ -48,18 +48,18 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **235** | Anime, manga, waifu, chibi, Ghibli |
-| `Other` | **53** | Miscellaneous high-resolution art |
+| `Anime` | **242** | Anime, manga, waifu, chibi, Ghibli |
+| `Other` | **54** | Miscellaneous high-resolution art |
 | `Gaming` | **37** | Video game art, characters, esports |
+| `Fantasy` | **37** | Castles, dragons, mythical creatures, magic |
 | `Landscape` | **30** | Mountains, lakes, rivers, sunsets, horizons |
 | `City` | **29** | Skylines, Tokyo streets, urban nightscapes |
 | `Cyberpunk` | **29** | Neon cities, synthwave, futuristic metropolis |
-| `Fantasy` | **27** | Castles, dragons, mythical creatures, magic |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
 | `Nature` | **21** | Forests, plants, waterfalls, flowers, jungle |
+| `Ocean` | **15** | Beaches, coastal waves, underwater coral |
 | `Space` | **15** | Galaxies, nebulas, solar systems, planets |
 | `Cars` | **15** | Supercars, racing, sports cars, drift |
-| `Ocean` | **14** | Beaches, coastal waves, underwater coral |
 | `Sci-Fi` | **14** | Spaceships, robots, aliens, futuristic tech |
 | `Abstract` | **12** | Gradients, geometric shapes, 3D renders, fluid art |
 | `Digital Art` | **10** | Concept art, CGI, ArtStation illustrations |
