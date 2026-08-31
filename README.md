@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 536
-* **Total Library Size**: 2.31 GB
-* **Average Resolution**: 4160 × 2400 px
+* **Total Curated Wallpapers**: 570
+* **Total Library Size**: 2.48 GB
+* **Average Resolution**: 4165 × 2426 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -24,14 +24,16 @@ Curated/
 ├── Anime/ (234 wallpapers)
 ├── Architecture/ (25 wallpapers)
 ├── Cars/ (15 wallpapers)
-├── City/ (24 wallpapers)
+├── City/ (29 wallpapers)
 ├── Comics/ (1 wallpapers)
 ├── Cyberpunk/ (21 wallpapers)
+├── Digital Art/ (10 wallpapers)
 ├── Fantasy/ (27 wallpapers)
-├── Gaming/ (28 wallpapers)
+├── Gaming/ (37 wallpapers)
 ├── Landscape/ (30 wallpapers)
+├── Military/ (7 wallpapers)
 ├── Minimalism/ (1 wallpapers)
-├── Music/ (4 wallpapers)
+├── Music/ (7 wallpapers)
 ├── Nature/ (21 wallpapers)
 ├── Ocean/ (14 wallpapers)
 ├── Other/ (47 wallpapers)
@@ -48,11 +50,11 @@ Curated/
 |---|:---:|---|
 | `Anime` | **234** | Anime, manga, waifu, chibi, Ghibli |
 | `Other` | **47** | Miscellaneous high-resolution art |
+| `Gaming` | **37** | Video game art, characters, esports |
 | `Landscape` | **30** | Mountains, lakes, rivers, sunsets, horizons |
-| `Gaming` | **28** | Video game art, characters, esports |
+| `City` | **29** | Skylines, Tokyo streets, urban nightscapes |
 | `Fantasy` | **27** | Castles, dragons, mythical creatures, magic |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
-| `City` | **24** | Skylines, Tokyo streets, urban nightscapes |
 | `Nature` | **21** | Forests, plants, waterfalls, flowers, jungle |
 | `Cyberpunk` | **21** | Neon cities, synthwave, futuristic metropolis |
 | `Space` | **15** | Galaxies, nebulas, solar systems, planets |
@@ -60,14 +62,14 @@ Curated/
 | `Ocean` | **14** | Beaches, coastal waves, underwater coral |
 | `Sci-Fi` | **14** | Spaceships, robots, aliens, futuristic tech |
 | `Abstract` | **11** | Gradients, geometric shapes, 3D renders, fluid art |
-| `Music` | **4** | Instruments, concerts, guitars, synth |
+| `Digital Art` | **10** | Concept art, CGI, ArtStation illustrations |
+| `Music` | **7** | Instruments, concerts, guitars, synth |
+| `Military` | **7** | Fighter jets, naval ships, aviation, armor |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
-| `Digital Art` | 0 | Concept art, CGI, ArtStation illustrations |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
-| `Military` | 0 | Fighter jets, naval ships, aviation, armor |
 | `People` | 0 | Portraits, models, human photography |
 | `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
 | `Vehicles` | 0 | Motorcycles, aircraft, trains, yachts |
