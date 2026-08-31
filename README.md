@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 570
-* **Total Library Size**: 2.48 GB
-* **Average Resolution**: 4165 × 2426 px
+* **Total Curated Wallpapers**: 586
+* **Total Library Size**: 2.58 GB
+* **Average Resolution**: 4179 × 2429 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -19,14 +19,14 @@ Wallpapers are stored in high-resolution format directly under their respective 
 
 ```text
 Curated/
-├── Abstract/ (11 wallpapers)
+├── Abstract/ (12 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (234 wallpapers)
+├── Anime/ (235 wallpapers)
 ├── Architecture/ (25 wallpapers)
 ├── Cars/ (15 wallpapers)
 ├── City/ (29 wallpapers)
 ├── Comics/ (1 wallpapers)
-├── Cyberpunk/ (21 wallpapers)
+├── Cyberpunk/ (29 wallpapers)
 ├── Digital Art/ (10 wallpapers)
 ├── Fantasy/ (27 wallpapers)
 ├── Gaming/ (37 wallpapers)
@@ -36,7 +36,7 @@ Curated/
 ├── Music/ (7 wallpapers)
 ├── Nature/ (21 wallpapers)
 ├── Ocean/ (14 wallpapers)
-├── Other/ (47 wallpapers)
+├── Other/ (53 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
 ├── Sci-Fi/ (14 wallpapers)
 └── Space/ (15 wallpapers)
@@ -48,20 +48,20 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **234** | Anime, manga, waifu, chibi, Ghibli |
-| `Other` | **47** | Miscellaneous high-resolution art |
+| `Anime` | **235** | Anime, manga, waifu, chibi, Ghibli |
+| `Other` | **53** | Miscellaneous high-resolution art |
 | `Gaming` | **37** | Video game art, characters, esports |
 | `Landscape` | **30** | Mountains, lakes, rivers, sunsets, horizons |
 | `City` | **29** | Skylines, Tokyo streets, urban nightscapes |
+| `Cyberpunk` | **29** | Neon cities, synthwave, futuristic metropolis |
 | `Fantasy` | **27** | Castles, dragons, mythical creatures, magic |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
 | `Nature` | **21** | Forests, plants, waterfalls, flowers, jungle |
-| `Cyberpunk` | **21** | Neon cities, synthwave, futuristic metropolis |
 | `Space` | **15** | Galaxies, nebulas, solar systems, planets |
 | `Cars` | **15** | Supercars, racing, sports cars, drift |
 | `Ocean` | **14** | Beaches, coastal waves, underwater coral |
 | `Sci-Fi` | **14** | Spaceships, robots, aliens, futuristic tech |
-| `Abstract` | **11** | Gradients, geometric shapes, 3D renders, fluid art |
+| `Abstract` | **12** | Gradients, geometric shapes, 3D renders, fluid art |
 | `Digital Art` | **10** | Concept art, CGI, ArtStation illustrations |
 | `Music` | **7** | Instruments, concerts, guitars, synth |
 | `Military` | **7** | Fighter jets, naval ships, aviation, armor |
