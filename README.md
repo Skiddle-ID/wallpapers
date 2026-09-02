@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 707
-* **Total Library Size**: 3.20 GB
-* **Average Resolution**: 4224 × 2463 px
+* **Total Curated Wallpapers**: 735
+* **Total Library Size**: 3.35 GB
+* **Average Resolution**: 4222 × 2461 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -21,20 +21,20 @@ Wallpapers are stored in high-resolution format directly under their respective 
 Curated/
 ├── Abstract/ (28 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (255 wallpapers)
+├── Anime/ (259 wallpapers)
 ├── Architecture/ (25 wallpapers)
 ├── Cars/ (22 wallpapers)
 ├── City/ (29 wallpapers)
 ├── Comics/ (1 wallpapers)
 ├── Cyberpunk/ (41 wallpapers)
 ├── Digital Art/ (10 wallpapers)
-├── Fantasy/ (37 wallpapers)
+├── Fantasy/ (47 wallpapers)
 ├── Gaming/ (37 wallpapers)
-├── Landscape/ (40 wallpapers)
+├── Landscape/ (50 wallpapers)
 ├── Military/ (7 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (7 wallpapers)
-├── Nature/ (32 wallpapers)
+├── Nature/ (36 wallpapers)
 ├── Ocean/ (23 wallpapers)
 ├── Other/ (69 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
@@ -48,13 +48,13 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **255** | Anime, manga, waifu, chibi, Ghibli |
+| `Anime` | **259** | Anime, manga, waifu, chibi, Ghibli |
 | `Other` | **69** | Miscellaneous high-resolution art |
+| `Landscape` | **50** | Mountains, lakes, rivers, sunsets, horizons |
+| `Fantasy` | **47** | Castles, dragons, mythical creatures, magic |
 | `Cyberpunk` | **41** | Neon cities, synthwave, futuristic metropolis |
-| `Landscape` | **40** | Mountains, lakes, rivers, sunsets, horizons |
 | `Gaming` | **37** | Video game art, characters, esports |
-| `Fantasy` | **37** | Castles, dragons, mythical creatures, magic |
-| `Nature` | **32** | Forests, plants, waterfalls, flowers, jungle |
+| `Nature` | **36** | Forests, plants, waterfalls, flowers, jungle |
 | `City` | **29** | Skylines, Tokyo streets, urban nightscapes |
 | `Abstract` | **28** | Gradients, geometric shapes, 3D renders, fluid art |
 | `Architecture` | **25** | Bridges, temples, cathedrals, modern structures |
