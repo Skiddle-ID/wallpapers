@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 854
-* **Total Library Size**: 3.93 GB
-* **Average Resolution**: 4244 × 2498 px
+* **Total Curated Wallpapers**: 869
+* **Total Library Size**: 4.01 GB
+* **Average Resolution**: 4237 × 2502 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -21,7 +21,7 @@ Wallpapers are stored in high-resolution format directly under their respective 
 Curated/
 ├── Abstract/ (68 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (283 wallpapers)
+├── Anime/ (295 wallpapers)
 ├── Architecture/ (35 wallpapers)
 ├── Cars/ (21 wallpapers)
 ├── City/ (29 wallpapers)
@@ -36,7 +36,8 @@ Curated/
 ├── Music/ (7 wallpapers)
 ├── Nature/ (42 wallpapers)
 ├── Ocean/ (33 wallpapers)
-├── Other/ (91 wallpapers)
+├── Other/ (92 wallpapers)
+├── People/ (2 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
 ├── Sci-Fi/ (29 wallpapers)
 └── Space/ (15 wallpapers)
@@ -48,8 +49,8 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **283** | Anime, manga, waifu, chibi, Ghibli |
-| `Other` | **91** | Miscellaneous high-resolution art |
+| `Anime` | **295** | Anime, manga, waifu, chibi, Ghibli |
+| `Other` | **92** | Miscellaneous high-resolution art |
 | `Abstract` | **68** | Gradients, geometric shapes, 3D renders, fluid art |
 | `Landscape` | **50** | Mountains, lakes, rivers, sunsets, horizons |
 | `Fantasy` | **47** | Castles, dragons, mythical creatures, magic |
@@ -67,10 +68,10 @@ Curated/
 | `Military` | **7** | Fighter jets, naval ships, aviation, armor |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `Comics` | **2** | Marvel, DC, superheroes, Batman, Spider-Man |
+| `People` | **2** | Portraits, models, human photography |
 | `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
 | `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
 | `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
-| `People` | 0 | Portraits, models, human photography |
 | `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
 | `Vehicles` | 0 | Motorcycles, aircraft, trains, yachts |
 
