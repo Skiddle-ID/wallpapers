@@ -33,6 +33,9 @@ tmp/
 *.tmp
 *.log
 
+# Generated thumbnails cache
+.thumbs/
+
 # Database & SQLite files
 *.db
 *.sqlite
