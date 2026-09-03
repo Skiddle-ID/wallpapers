@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 872
+* **Total Curated Wallpapers**: 873
 * **Total Library Size**: 4.03 GB
-* **Average Resolution**: 4236 × 2501 px
+* **Average Resolution**: 4234 × 2500 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -21,7 +21,7 @@ Wallpapers are stored in high-resolution format directly under their respective 
 Curated/
 ├── Abstract/ (68 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (298 wallpapers)
+├── Anime/ (299 wallpapers)
 ├── Architecture/ (35 wallpapers)
 ├── Cars/ (21 wallpapers)
 ├── City/ (29 wallpapers)
@@ -49,7 +49,7 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **298** | Anime, manga, waifu, chibi, Ghibli, vtubers, gacha games |
+| `Anime` | **299** | Anime, manga, waifu, chibi, Ghibli, vtubers, gacha games |
 | `Other` | **92** | Fallback for content that doesn't match any category |
 | `Abstract` | **68** | Gradients, geometric shapes, 3D renders, fluid art |
 | `Landscape` | **50** | Natural scenery, mountains, forests, beaches, deserts |
