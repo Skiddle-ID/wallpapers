@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 872
-* **Total Library Size**: 4.03 GB
-* **Average Resolution**: 4236 × 2501 px
+* **Total Curated Wallpapers**: 881
+* **Total Library Size**: 4.06 GB
+* **Average Resolution**: 4229 × 2497 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -21,18 +21,22 @@ Wallpapers are stored in high-resolution format directly under their respective 
 Curated/
 ├── Abstract/ (68 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (298 wallpapers)
+├── Anime/ (299 wallpapers)
 ├── Architecture/ (35 wallpapers)
+├── Art/ (2 wallpapers)
 ├── Cars/ (21 wallpapers)
 ├── City/ (29 wallpapers)
 ├── Comics/ (2 wallpapers)
-├── Cyberpunk/ (41 wallpapers)
+├── Cyberpunk/ (43 wallpapers)
 ├── Digital Art/ (10 wallpapers)
 ├── Fantasy/ (47 wallpapers)
+├── Games/ (1 wallpapers)
 ├── Gaming/ (39 wallpapers)
 ├── Landscape/ (50 wallpapers)
 ├── Military/ (7 wallpapers)
 ├── Minimalism/ (1 wallpapers)
+├── Miscellaneous/ (1 wallpapers)
+├── Movies/ (1 wallpapers)
 ├── Music/ (7 wallpapers)
 ├── Nature/ (42 wallpapers)
 ├── Ocean/ (33 wallpapers)
@@ -40,7 +44,7 @@ Curated/
 ├── People/ (2 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
 ├── Sci-Fi/ (29 wallpapers)
-└── Space/ (15 wallpapers)
+└── Space/ (16 wallpapers)
 ```
 
 ---
@@ -49,35 +53,35 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **298** | Anime, manga, waifu, chibi, Ghibli, vtubers, gacha games |
+| `Anime` | **299** | Anime, manga, waifu, chibi, Ghibli, vtubers, gacha games |
 | `Other` | **92** | Fallback for content that doesn't match any category |
 | `Abstract` | **68** | Gradients, geometric shapes, 3D renders, fluid art |
 | `Landscape` | **50** | Natural scenery, mountains, forests, beaches, deserts |
 | `Fantasy` | **47** | Dragons, magic, medieval, mythical creatures, epic landscapes |
+| `Cyberpunk` | **43** | Neon dystopia, high-tech low-life, futuristic cityscapes |
 | `Nature` | **42** | Plants, flowers, wildlife, natural textures |
-| `Cyberpunk` | **41** | Neon dystopia, high-tech low-life, futuristic cityscapes |
 | `Gaming` | **39** | High-resolution art |
 | `Architecture` | **35** | Buildings, interiors, cityscapes, urban design |
 | `Ocean` | **33** | High-resolution art |
 | `City` | **29** | High-resolution art |
 | `Sci-Fi` | **29** | High-resolution art |
 | `Cars` | **21** | Sports cars, supercars, classic cars, motorcycles, racing |
-| `Space` | **15** | Planets, galaxies, nebulae, astronauts, cosmos |
+| `Space` | **16** | Planets, galaxies, nebulae, astronauts, cosmos |
 | `Digital Art` | **10** | High-resolution art |
 | `Music` | **7** | Musicians, instruments, concerts, album art |
 | `Military` | **7** | High-resolution art |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
 | `Comics` | **2** | High-resolution art |
 | `People` | **2** | Portraits, fashion, crowds, human subjects |
+| `Art` | **2** | Traditional paintings, illustration, concept art, digital painting |
 | `Minimalism` | **1** | Clean, simple, negative space, flat design, OLED-friendly |
 | `Pixel Art` | **1** | Pixel art, 8-bit, 16-bit, retro game graphics |
-| `Art` | 0 | Traditional paintings, illustration, concept art, digital painting |
+| `Miscellaneous` | **1** | Uncategorized or mixed content |
+| `Movies` | **1** | Film stills, movie posters, cinematic scenes |
+| `Games` | **1** | Video games, game art, screenshots, esports |
 | `Food` | 0 | Cuisine, drinks, desserts, food photography |
-| `Games` | 0 | Video games, game art, screenshots, esports |
 | `Holidays` | 0 | Christmas, Halloween, New Year, celebrations |
 | `Macro` | 0 | Close-up photography of small subjects |
-| `Miscellaneous` | 0 | Uncategorized or mixed content |
-| `Movies` | 0 | Film stills, movie posters, cinematic scenes |
 | `Neon` | 0 | Neon lights, signs, glowing urban nightlife |
 | `Sports` | 0 | Athletes, stadiums, action sports, fitness |
 | `Technology` | 0 | Computers, code, circuits, gadgets, futuristic tech |
