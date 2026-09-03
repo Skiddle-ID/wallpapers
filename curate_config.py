@@ -98,3 +98,16 @@ UA_AGENT = _env("CURATE_UA_AGENT", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Wa
 WALLHAVEN_API_KEY = _env("WALLHAVEN_API_KEY", "")
 DEVIANTART_CLIENT_ID = _env("DEVIANTART_CLIENT_ID", "")
 DEVIANTART_CLIENT_SECRET = _env("DEVIANTART_CLIENT_SECRET", "")
+
+# ==============================================================================
+# S3 / BACKBLAZE B2 STORAGE & CDN
+# ==============================================================================
+
+S3_ENDPOINT_URL = _env("CURATE_S3_ENDPOINT_URL", _env("AWS_ENDPOINT_URL", ""))
+S3_KEY_ID = _env("CURATE_S3_KEY_ID", _env("AWS_ACCESS_KEY_ID", ""))
+S3_APP_KEY = _env("CURATE_S3_APP_KEY", _env("AWS_SECRET_ACCESS_KEY", ""))
+S3_BUCKET = _env("CURATE_S3_BUCKET", _env("AWS_BUCKET_NAME", ""))
+S3_REGION = _env("CURATE_S3_REGION", _env("AWS_DEFAULT_REGION", "us-east-005"))
+CDN_BASE = _env("CURATE_CDN_BASE", "https://cdn.skiddle.id").rstrip("/")
+S3_MAX_WORKERS = _env_int("CURATE_S3_MAX_WORKERS", 8)
+

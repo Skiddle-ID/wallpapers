@@ -359,6 +359,10 @@ let wallpapers = [];
       const card = document.createElement('div');
       const isCur = w.is_curated === 1;
       const isRej = w.is_curated === -1;
+      const imgSrc = (isCur && w.s3_url)
+        ? w.s3_url
+        : `/thumb/${encodeURIComponent(w.category)}/${encodeURIComponent(w.filename)}`;
+      const fallbackSrc = `/image/${encodeURIComponent(w.category)}/${encodeURIComponent(w.filename)}`;
 
       card.className = `card ${isSelected ? 'selected' : ''} ${isCur ? 'is-curated' : ''} ${isRej ? 'is-rejected' : ''}`;
       card.dataset.id = w.id;
@@ -371,7 +375,7 @@ let wallpapers = [];
         ${isCur ? `<div class="card-ribbon curated">✓ ${w.curated_filename || 'Curated'}</div>` : ''}
         ${isRej ? `<div class="card-ribbon rejected">✕ Rejected</div>` : ''}
         <div class="card-thumb">
-          <img src="/thumb/${encodeURIComponent(w.category)}/${encodeURIComponent(w.filename)}" loading="lazy" decoding="async" onerror="this.src='/image/${encodeURIComponent(w.category)}/${encodeURIComponent(w.filename)}'" />
+          <img src="${imgSrc}" loading="lazy" decoding="async" onerror="if(this.src!=='${fallbackSrc}')this.src='${fallbackSrc}'" />
         </div>
 
         <!-- Hover Quick Actions -->
@@ -621,7 +625,10 @@ let wallpapers = [];
       const w = wallpapers[lightboxIndex];
       if (!w) return;
 
-      document.getElementById('lb-image').src = `/image/${encodeURIComponent(w.category)}/${encodeURIComponent(w.filename)}`;
+      const lbSrc = (w.is_curated === 1 && w.s3_url)
+        ? w.s3_url
+        : `/image/${encodeURIComponent(w.category)}/${encodeURIComponent(w.filename)}`;
+      document.getElementById('lb-image').src = lbSrc;
       document.getElementById('lb-title').innerText = `${w.category} #${w.id}`;
       document.getElementById('lb-cat').innerText = w.category;
       document.getElementById('lb-res').innerText = `${w.width} × ${w.height}`;
@@ -1185,7 +1192,7 @@ let wallpapers = [];
       { id: 'classify-selected', name: 'Auto-Classify Selected Wallpapers', category: 'Classifier', icon: '⚡', action: () => batchClassifySelected() },
       { id: 'select-all', name: 'Select All Visible Wallpapers', category: 'Actions', icon: '▦', kbd: 'Ctrl+A', action: () => toggleSelectAll() },
       { id: 'clear-selection', name: 'Clear Selection', category: 'Actions', icon: '⦸', kbd: 'Esc', action: () => clearSelection() },
-      { id: 'publish-git', name: 'Publish Curated Collection to GitHub', category: 'Actions', icon: '🚀', action: () => pushToGit() },
+      { id: 'publish-cdn', name: 'Publish Curated Collection to CDN & Git', category: 'Actions', icon: '🚀', action: () => publishToCdn() },
       { id: 'open-stats', name: 'Open Curation Analytics & Statistics', category: 'Views', icon: '📊', action: () => openStatsModal() },
       { id: 'open-shortcuts', name: 'Open Keyboard Shortcuts Cheat Sheet', category: 'Views', icon: '⌨️', action: () => openShortcutsModal() },
       { id: 'show-uncurated', name: 'Show Uncurated Wallpapers Only', category: 'Filters', icon: '⏳', action: () => quickFilterStatus('uncurated', null) },
@@ -1283,14 +1290,14 @@ let wallpapers = [];
       }
     }
 
-    async function pushToGit() {
-      showToast('⏳ Updating README stats & pushing to GitHub...');
-      const res = await fetch('/api/git-push', { method: 'POST' });
+    async function publishToCdn() {
+      showToast('☁️ Publishing curated wallpapers to CDN & syncing README...');
+      const res = await fetch('/api/publish-cdn', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({}) });
       const data = await res.json();
-      if (data.success) {
-        showToast(`🚀 Pushed ${data.curated_count} curated wallpapers to GitHub!`);
+      if (data.success && data.task_id) {
+        showToast(`🚀 CDN Publish started (Task #${data.task_id})`);
       } else {
-        showToast(`❌ Push error: ${data.error}`);
+        showToast(`❌ Publish error: ${data.error || 'Failed to start'}`);
       }
     }
 

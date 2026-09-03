@@ -79,6 +79,9 @@ EXPECTED_COLUMNS = {
     "curated_id": "INTEGER",
     "curated_filename": "TEXT",
     "created_at": "TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+    "s3_key": "TEXT",
+    "s3_url": "TEXT",
+    "s3_uploaded_at": "TIMESTAMP",
 }
 
 
@@ -139,6 +142,7 @@ def init_db(db_path: Path = DB_PATH) -> None:
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_wallpapers_category ON wallpapers(category)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_wallpapers_phash ON wallpapers(perceptual_hash)")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_wallpapers_curated ON wallpapers(is_curated)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_wallpapers_s3_key ON wallpapers(s3_key)")
 
 
 def sync_curated_folder(curated_dir: Path, db_path: Path = DB_PATH) -> int:
@@ -282,3 +286,39 @@ def get_stats(db_path: Path = DB_PATH) -> Dict[str, Any]:
             "total_size_bytes": total_size,
             "curated_wallpapers": curated_count,
         }
+
+
+def update_wallpaper_s3(
+    wallpaper_id: int,
+    s3_key: str,
+    s3_url: str,
+    db_path: Path = DB_PATH,
+) -> bool:
+    """Record S3 object key and public CDN URL on a wallpaper row."""
+    with db_session(db_path) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            UPDATE wallpapers
+            SET s3_key = ?, s3_url = ?, s3_uploaded_at = CURRENT_TIMESTAMP
+            WHERE id = ?
+            """,
+            (s3_key, s3_url, wallpaper_id),
+        )
+        return cursor.rowcount > 0
+
+
+def get_unsynced_curated_wallpapers(db_path: Path = DB_PATH) -> List[Dict[str, Any]]:
+    """Return curated wallpapers that have not yet been uploaded to S3/B2."""
+    with db_session(db_path) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            SELECT id, category, curated_id, curated_filename, filename, filesize
+            FROM wallpapers
+            WHERE is_curated = 1
+              AND (s3_key IS NULL OR s3_key = '')
+            ORDER BY id ASC
+            """
+        )
+        return [dict(row) for row in cursor.fetchall()]

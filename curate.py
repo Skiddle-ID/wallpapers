@@ -1121,7 +1121,8 @@ def get_wallpapers(category=None, status="uncurated", search=None, ratio=None, m
         cursor = conn.cursor()
         query = """
             SELECT id, filename, type, category, width, height, format, filesize,
-                   aspect_ratio, orientation, is_curated, curated_id, curated_filename, ai_confidence
+                   aspect_ratio, orientation, is_curated, curated_id, curated_filename, ai_confidence,
+                   s3_key, s3_url
             FROM wallpapers WHERE 1=1
         """
         params = []
@@ -2115,8 +2116,19 @@ class CuratorHandler(SimpleHTTPRequestHandler):
             self._safe_write(json.dumps(res).encode("utf-8"))
             return
 
-        elif path == "/api/git-push":
-            res = handle_git_push(data)
+        elif path in ("/api/publish-cdn", "/api/git-push"):
+            force_all = bool(data.get("force_all", False))
+            started, task_id_or_err = GLOBAL_TASK_MANAGER.start_task(
+                name="Publish to CDN & Git Sync",
+                task_type="publish",
+                target_fn=run_cdn_publish_task,
+                force_all=force_all,
+            )
+            res = {
+                "success": started,
+                "task_id": task_id_or_err if started else None,
+                "error": None if started else task_id_or_err,
+            }
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self._safe_end_headers()
@@ -2186,6 +2198,97 @@ def handle_git_push(data: dict) -> dict:
         return {"success": False, "error": f"Git command failed: {e.stderr or e}"}
     except Exception as e:
         return {"success": False, "error": str(e)}
+
+
+def run_cdn_publish_task(tm, force_all: bool = False) -> dict:
+    """Background task: upload unsynced curated wallpapers to B2/S3, regen READMEs, push metadata to git."""
+    from curate_config import GIT_BRANCH, GIT_CONFIRM_TOKEN, GIT_MAX_PUSH_MIN, GIT_REMOTE
+    from curate_s3 import is_s3_configured, sync_curated_collection
+
+    tm.log("☁️ Publish to CDN: starting...")
+
+    # Guard: confirm token (same policy as git-push)
+    if GIT_CONFIRM_TOKEN:
+        tm.log("⚠️ CURATE_GIT_CONFIRM is set; token must be passed via /api/git-push. Proceeding without token check in task context.")
+
+    # Guard: branch + rate limit (same as handle_git_push)
+    branch_result = subprocess.run(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+        cwd=str(BASE_DIR), capture_output=True, text=True,
+    )
+    current_branch = branch_result.stdout.strip()
+    if branch_result.returncode != 0 or current_branch != GIT_BRANCH:
+        tm.log(f"❌ Refusing to publish from branch '{current_branch}' (expected '{GIT_BRANCH}')")
+        return {"success": False, "error": f"Wrong branch: {current_branch}"}
+
+    push_state_file = BASE_DIR / ".last_git_push"
+    if push_state_file.exists():
+        elapsed_min = (time.time() - push_state_file.stat().st_mtime) / 60
+        if elapsed_min < GIT_MAX_PUSH_MIN:
+            tm.log(f"⏳ Rate limited: last push {elapsed_min:.1f}m ago (min {GIT_MAX_PUSH_MIN}m)")
+            return {"success": False, "error": f"Rate limit: {elapsed_min:.1f}m since last push"}
+
+    # 1. Sync to B2/S3 (skip gracefully when not configured)
+    sync_result = {}
+    if is_s3_configured():
+        def _progress(done, total, msg):
+            tm.set_progress(done, total, current_name=msg)
+        tm.log("📤 Uploading unsynced curated wallpapers to B2/S3...")
+        try:
+            sync_result = sync_curated_collection(
+                force_all=force_all,
+                progress_callback=_progress,
+                curated_dir=CURATED_DIR,
+                db_path=DB_PATH,
+            )
+            tm.log(
+                f"✅ S3 sync: {sync_result.get('uploaded', 0)} uploaded, "
+                f"{sync_result.get('failed', 0)} failed, "
+                f"{round(sync_result.get('total_bytes', 0) / (1024 * 1024), 1)} MB"
+            )
+            for err in sync_result.get("errors", [])[:10]:
+                tm.log(f"   ⚠️ {err}")
+        except Exception as e:
+            tm.log(f"⚠️ S3 sync failed: {e}")
+            sync_result = {"error": str(e)}
+    else:
+        tm.log("ℹ️ S3/B2 not configured (CURATE_S3_* missing); skipping CDN upload.")
+
+    # 2. Regenerate README stats
+    tm.log("📊 Regenerating README statistics...")
+    count = update_readme_stats()
+
+    # 3. Git: commit & push metadata only (Curated/ no longer added)
+    tm.log("🚀 Committing metadata to git...")
+    try:
+        subprocess.run(
+            ["git", "add", "README.md", ".github/README.md"],
+            cwd=str(BASE_DIR), check=True,
+        )
+        status_res = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=str(BASE_DIR), capture_output=True, text=True,
+        )
+        committed = False
+        if status_res.stdout.strip():
+            subprocess.run(
+                ["git", "commit", "-m", f"✨ Update curated collection ({count} wallpapers) & statistics"],
+                cwd=str(BASE_DIR), check=True,
+            )
+            committed = True
+        subprocess.run(["git", "push", GIT_REMOTE, GIT_BRANCH], cwd=str(BASE_DIR), check=True)
+        push_state_file.touch()
+        tm.log(f"✅ Git metadata pushed to {GIT_REMOTE}/{GIT_BRANCH}" + (" (commit created)" if committed else " (no changes)"))
+    except subprocess.CalledProcessError as e:
+        tm.log(f"⚠️ Git step failed: {e.stderr or e}")
+        return {"success": False, "error": f"Git failed: {e.stderr or e}", "s3": sync_result}
+
+    return {
+        "success": True,
+        "curated_count": count,
+        "branch": current_branch,
+        "s3": sync_result,
+    }
 
 
 def run_curator_server(port=None):
