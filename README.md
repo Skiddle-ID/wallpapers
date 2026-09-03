@@ -6,9 +6,9 @@ A hand-picked collection of **2K+ resolution** wallpapers organized across 25 cl
 
 ## 📊 Collection Statistics
 
-* **Total Curated Wallpapers**: 775
-* **Total Library Size**: 3.58 GB
-* **Average Resolution**: 4248 × 2484 px
+* **Total Curated Wallpapers**: 872
+* **Total Library Size**: 4.03 GB
+* **Average Resolution**: 4236 × 2501 px
 * **Min Resolution Standard**: ≥ 3,686,400 pixels (2560 × 1440)
 
 ---
@@ -19,24 +19,25 @@ Wallpapers are stored in high-resolution format directly under their respective 
 
 ```text
 Curated/
-├── Abstract/ (39 wallpapers)
+├── Abstract/ (68 wallpapers)
 ├── Animals/ (3 wallpapers)
-├── Anime/ (259 wallpapers)
+├── Anime/ (298 wallpapers)
 ├── Architecture/ (35 wallpapers)
 ├── Cars/ (21 wallpapers)
 ├── City/ (29 wallpapers)
-├── Comics/ (1 wallpapers)
+├── Comics/ (2 wallpapers)
 ├── Cyberpunk/ (41 wallpapers)
 ├── Digital Art/ (10 wallpapers)
 ├── Fantasy/ (47 wallpapers)
-├── Gaming/ (37 wallpapers)
+├── Gaming/ (39 wallpapers)
 ├── Landscape/ (50 wallpapers)
 ├── Military/ (7 wallpapers)
 ├── Minimalism/ (1 wallpapers)
 ├── Music/ (7 wallpapers)
-├── Nature/ (40 wallpapers)
+├── Nature/ (42 wallpapers)
 ├── Ocean/ (33 wallpapers)
-├── Other/ (70 wallpapers)
+├── Other/ (92 wallpapers)
+├── People/ (2 wallpapers)
 ├── Pixel Art/ (1 wallpapers)
 ├── Sci-Fi/ (29 wallpapers)
 └── Space/ (15 wallpapers)
@@ -48,31 +49,41 @@ Curated/
 
 | Category | Wallpapers | Description / Examples |
 |---|:---:|---|
-| `Anime` | **259** | Anime, manga, waifu, chibi, Ghibli |
-| `Other` | **70** | Miscellaneous high-resolution art |
-| `Landscape` | **50** | Mountains, lakes, rivers, sunsets, horizons |
-| `Fantasy` | **47** | Castles, dragons, mythical creatures, magic |
-| `Cyberpunk` | **41** | Neon cities, synthwave, futuristic metropolis |
-| `Nature` | **40** | Forests, plants, waterfalls, flowers, jungle |
-| `Abstract` | **39** | Gradients, geometric shapes, 3D renders, fluid art |
-| `Gaming` | **37** | Video game art, characters, esports |
-| `Architecture` | **35** | Bridges, temples, cathedrals, modern structures |
-| `Ocean` | **33** | Beaches, coastal waves, underwater coral |
-| `City` | **29** | Skylines, Tokyo streets, urban nightscapes |
-| `Sci-Fi` | **29** | Spaceships, robots, aliens, futuristic tech |
-| `Cars` | **21** | Supercars, racing, sports cars, drift |
-| `Space` | **15** | Galaxies, nebulas, solar systems, planets |
-| `Digital Art` | **10** | Concept art, CGI, ArtStation illustrations |
-| `Music` | **7** | Instruments, concerts, guitars, synth |
-| `Military` | **7** | Fighter jets, naval ships, aviation, armor |
+| `Anime` | **298** | Anime, manga, waifu, chibi, Ghibli, vtubers, gacha games |
+| `Other` | **92** | Fallback for content that doesn't match any category |
+| `Abstract` | **68** | Gradients, geometric shapes, 3D renders, fluid art |
+| `Landscape` | **50** | Natural scenery, mountains, forests, beaches, deserts |
+| `Fantasy` | **47** | Dragons, magic, medieval, mythical creatures, epic landscapes |
+| `Nature` | **42** | Plants, flowers, wildlife, natural textures |
+| `Cyberpunk` | **41** | Neon dystopia, high-tech low-life, futuristic cityscapes |
+| `Gaming` | **39** | High-resolution art |
+| `Architecture` | **35** | Buildings, interiors, cityscapes, urban design |
+| `Ocean` | **33** | High-resolution art |
+| `City` | **29** | High-resolution art |
+| `Sci-Fi` | **29** | High-resolution art |
+| `Cars` | **21** | Sports cars, supercars, classic cars, motorcycles, racing |
+| `Space` | **15** | Planets, galaxies, nebulae, astronauts, cosmos |
+| `Digital Art` | **10** | High-resolution art |
+| `Music` | **7** | Musicians, instruments, concerts, album art |
+| `Military` | **7** | High-resolution art |
 | `Animals` | **3** | Wildlife, cats, dogs, wolves, birds, marine life |
-| `Minimalism` | **1** | Flat vector art, OLED/AMOLED, clean geometry |
-| `Comics` | **1** | Marvel, DC, superheroes, Batman, Spider-Man |
-| `Pixel Art` | **1** | 8-bit, 16-bit, retro arcade scenery, voxels |
-| `Horror` | 0 | Gothic art, dark fantasy, skulls, monsters |
-| `People` | 0 | Portraits, models, human photography |
-| `Sports` | 0 | Basketball, skateboarding, surfing, athletics |
-| `Vehicles` | 0 | Motorcycles, aircraft, trains, yachts |
+| `Comics` | **2** | High-resolution art |
+| `People` | **2** | Portraits, fashion, crowds, human subjects |
+| `Minimalism` | **1** | Clean, simple, negative space, flat design, OLED-friendly |
+| `Pixel Art` | **1** | Pixel art, 8-bit, 16-bit, retro game graphics |
+| `Art` | 0 | Traditional paintings, illustration, concept art, digital painting |
+| `Food` | 0 | Cuisine, drinks, desserts, food photography |
+| `Games` | 0 | Video games, game art, screenshots, esports |
+| `Holidays` | 0 | Christmas, Halloween, New Year, celebrations |
+| `Macro` | 0 | Close-up photography of small subjects |
+| `Miscellaneous` | 0 | Uncategorized or mixed content |
+| `Movies` | 0 | Film stills, movie posters, cinematic scenes |
+| `Neon` | 0 | Neon lights, signs, glowing urban nightlife |
+| `Sports` | 0 | Athletes, stadiums, action sports, fitness |
+| `Technology` | 0 | Computers, code, circuits, gadgets, futuristic tech |
+| `Typography` | 0 | Text-based art, quotes, calligraphy, logo designs |
+| `Vaporwave` | 0 | Vaporwave, retrowave, synthwave, 80s/90s aesthetics |
+| `Weapons` | 0 | Firearms, swords, historical weapons, military gear |
 
 ---
 
